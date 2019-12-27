@@ -12425,14 +12425,19 @@ body .load div.c-spinner {
   bottom: 0;
 }
 
+.content-product .href_img {
+  width: 40%;
+}
+
 .content-product .details-prod {
-  width: 50%;
+  width: 55%;
   padding: 4% 4%;
 }
 
 .content-product .details-prod .title-prod {
   font-size: 15px;
   text-align: center;
+  height: 48px;
 }
 
 .content-product .details-prod .price-before,

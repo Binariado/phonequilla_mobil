@@ -16,13 +16,13 @@
                 <div class="ImgProd carousel-cell">
                     <div>
                         <img class="lazy-c"
-                            src="{{"https://iphonequilla.com.co/iphonequilla/public/storage/".$product->img}}">
+                            src="{{"https://iphonequilla.com.co/storage/".$product->img}}">
                     </div>
                 </div>
                 <div class="ImgProd carousel-cell">
                     <div>
                         <img class="lazy-c"
-                            src="{{"https://iphonequilla.com.co/iphonequilla/public/storage/".$product->img}}">
+                            src="{{"https://iphonequilla.com.co/storage/".$product->img}}">
                     </div>
                 </div>
             </div>

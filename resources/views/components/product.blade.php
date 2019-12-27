@@ -2,11 +2,11 @@
 @foreach ($Catproduct as $cat_prod)
 <div data-id="{{$cat_prod->id}}" class="m-2 separator-product js-view-product">
     <div class="content-product d-flex justify-content-between">
-        <a href="{{url("/product/".$cat_prod->id)}}">
+        <a class="href_img" href="{{url("/product/".$cat_prod->id)}}">
             <div class="d-flex align-items-center">
                 <div class="img-prod">
                     <div>
-                        <img class="lazy" data-src="{{"https://iphonequilla.com.co/iphonequilla/public/storage/".$cat_prod->img}}" src="" alt="">
+                        <img class="lazy" data-src="{{"https://iphonequilla.com.co/storage/".$cat_prod->img}}" src="" alt="">
                     </div>
                 </div>
             </div>

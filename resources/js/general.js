@@ -45,3 +45,7 @@ function elementVisible(element){
     }
     return visible;
 }
+
+$('.carousel').carousel({
+    interval: 3000
+})

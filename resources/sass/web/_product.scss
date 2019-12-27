@@ -29,12 +29,16 @@
             }
         }
     }
+    .href_img{
+        width: 40%;
+    }
     .details-prod{
-        width: 50%;
+        width: 55%;
         padding: 4% 4%;
         .title-prod{
             font-size: 15px;
             text-align: center;
+            height: 48px;
         }
         .price-before,.price-now{
             margin-top: 10px ;
