@@ -1,0 +1,112 @@
+#view-product{
+    .content-imgview{
+
+    }
+    .flickity-page-dots{
+        bottom: 20px;
+        .dot{
+            width: 15px;
+            height: 15px;
+            border-radius: 50rem;
+            -webkit-border-radius: 50rem;
+            -moz-border-radius: 50rem;
+            -ms-border-radius: 50rem;
+            -o-border-radius: 50rem;
+        }
+        .dot.is-selected{
+            background: #F53F3D;
+        }
+    }
+    .item-viewProd{
+        width: 100%;
+        .ImgProd{
+            display: table;
+            width: 100%;
+            margin: 0 auto;
+            padding: 4% 10%;
+            div{
+                display: table-cell;
+                height: 500px;
+                vertical-align: middle;
+                img{
+                    text-align: center;
+                    margin-left: auto !important;
+                    margin-right: auto !important;
+                    display: block !important;
+                    vertical-align: middle !important;
+                    max-width: 100%;
+                    max-height: 100%;
+                    bottom: 0;
+                }
+            }
+        }
+    }
+    .details-prod{
+        padding: 4% 0%;
+    }
+    .prod-title{
+        color: #222731;
+        font-size: 27px;
+    }
+    .content-text-icon{
+        font-size: 17px;
+        margin-top: 2.2rem;
+        .incon-qty:before{
+            vertical-align: sub;
+            cursor: pointer;
+            color: #B4C0D6;
+        }
+        .icon-qty{
+            padding: 2%;
+            color: #FFFFFF;
+        }
+        #qty{
+            border: none;
+            text-align: center;
+            width: 40px;
+            color: $color-page1;
+        }
+    }
+    .view-colors{
+        div{
+            display: inline-block;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            height: 24px;
+            width: 24px;
+            margin-right: 0.8rem;
+        }
+    }
+    .price-view{
+        font-size: 30px;
+        width: 100%;
+    }
+    .share-icon{
+        width: 42px;
+        height: 42px;
+        display: flex;
+        -webkit-box-align: center !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background-color: #8D8D8D;
+    }
+    .share-icon:before{
+        color: white !important;
+        font-size: 23.89px;
+    }
+    .tab-pane{
+
+    }
+    .nav-link{
+        background: transparent;
+        color: #8D8D8D;
+    }
+    .nav-link.active{
+        border-bottom:solid 2px #E44652;
+        border-radius: 0px;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        -ms-border-radius: 0px;
+        -o-border-radius: 0px;
+    }
+}

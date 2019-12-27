@@ -1,0 +1,72 @@
+.content-loggin-register{
+    a{
+        outline: none !important;
+        text-decoration: none !important;
+    }
+    .btn-reset{
+        font-family: "Montserrat-regular", sans-serif;
+        color: #707070;
+    }
+    .btn-reset:hover{
+        font-family: "Montserrat-bold", sans-serif;
+        color: #707070;
+    }
+    .input-group-prepend{
+
+        .input-group-text{
+            background-color: transparent;
+            border: none;
+        }
+        label{
+            font-family: "Montserrat-regular", sans-serif !important;
+            margin: 0;
+        }
+    }
+    .content-login,.content-register{
+        input,select{
+            border-radius: 50rem !important;
+            font-family: "Montserrat-regular", sans-serif;
+            color: #707070;
+        }
+        label{
+            color: #222731;
+            font-family: "roboto-bold", sans-serif;
+        }
+        .card{
+            width: 100% !important;
+            margin: 1%;
+            border-radius: 10px;
+            background-color: white;
+            border: solid 1px #8D8D8D;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 10px;
+            .card-header{
+                background-color: transparent;
+                border: none;
+                text-align: center;
+                color:$color-page1;
+            }
+            .card-body{
+                .card-header{
+                    background-color: transparent;
+                    border: none;
+                    text-align: center;
+                    color:$color-page1;
+                }
+                label{
+                    font-size: 15px;
+                }
+                .btn{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+.content-register{
+    .card-content{
+        width: initial !important;
+    }
+}

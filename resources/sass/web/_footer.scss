@@ -1,0 +1,147 @@
+.content-footer{
+    background-color: #272727 !important;
+    padding-bottom: 2%;
+    padding-top: 2%;
+    .card-deck{
+        padding: 0;
+        .card{
+            background-color: transparent;
+            border: 1px solid rgba(0, 0, 0, 0);
+            .card-body{
+                padding: 0;
+                .card-title{
+                    color:white;
+                    font-family: 'Roboto-regular', sans-serif;
+                    font-size: 17px;
+                    margin-top: 0;
+                    width: 100%;
+                }
+                .card-hr{
+                    hr{
+                        border: solid 2px $color1;
+                        width: 40px;
+                        float: left;
+                        margin-top: 0;
+                    }
+                }
+                .card-text{
+                    color:white;
+                    font-family: 'Roboto-regular', sans-serif;
+                    font-size: 14px;
+                }
+                .card-icon{
+                    color: white;
+                    i:before{
+                        font-size: 30px;
+                    }
+
+                }
+            }
+        }
+    }
+    .card-letter{
+        .input-footer{
+
+            .c-f-button{
+                width: 100%;
+            }
+            input{
+                border:none;
+                background-color: transparent;
+                border-bottom: solid 2px white;
+                color: white;
+                font-size: 17px;
+                border-radius: 0;
+                -webkit-border-radius: 0;
+                -moz-border-radius: 0;
+                -ms-border-radius: 0;
+                -o-border-radius: 0;
+                font-family: 'Roboto-regular', sans-serif;
+            }
+            a{
+                font-family: 'Roboto-regular', sans-serif;
+                font-size: 18px;
+                border: none;
+                border-radius: 0;
+                -webkit-border-radius: 0;
+                -moz-border-radius: 0;
+                -ms-border-radius: 0;
+                -o-border-radius: 0;
+                background-color: $color2;
+                color: white;
+            }
+            button{
+                border-radius: 0;
+                -webkit-border-radius: 0;
+                -moz-border-radius: 0;
+                -ms-border-radius: 0;
+                -o-border-radius: 0;
+                background-color: $color2;
+                color: white;
+                font-size: 18px;
+                font-family: 'Roboto-regular', sans-serif;
+                padding-left: 10%;
+                padding-right: 10%;
+                border:0;
+            }
+            ::-webkit-input-placeholder { /* Edge */
+                color: white;
+              }
+
+              :-ms-input-placeholder { /* Internet Explorer 10-11 */
+                color: white;
+              }
+
+              ::placeholder {
+                color: white;
+              }
+        }
+    }
+    .input-group{
+        input,.btn{
+            height: 53.38px;
+        }
+        .input-group-append{
+            width: 33%;
+            .btn{
+                width: 100%;
+                background-color: #EDEDED !important;
+                border: none;
+            }
+        }
+    }
+    .icon-contact{
+        background-color: #E63D3B;
+        height: 30px;
+        width: 30px;
+        margin-right: 4px;
+        i:before{
+            color:white;
+            font-size: 17.5px;
+        }
+    }
+    .list-group{
+        .list-group-item{
+
+            i:before{
+                color:#E63D3B;
+            }
+        }
+    }
+
+}
+@media (max-width: 576px){
+    .content-footer{
+        .card-deck.container{
+            max-width: 796px;
+        }
+    }
+}
+.border-left{
+    border-top-left-radius: 50rem !important;
+    border-bottom-left-radius: 50rem !important;
+}
+.border-right{
+    border-top-right-radius: 50rem !important;
+    border-bottom-right-radius: 50rem !important;
+}

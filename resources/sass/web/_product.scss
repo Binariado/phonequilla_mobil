@@ -1,0 +1,113 @@
+.separator-product{
+    //float: left;
+}
+.content-product{
+    border: solid 1px #CECECE;
+    //padding: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    width: 362.91px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    .img-prod{
+        display: table;
+        margin: 0 auto;
+        div{
+            background-color: transparent;
+            display: table-cell;
+            height: 284.54px;
+            vertical-align: middle;
+            img{
+                display: block!important;
+                vertical-align: middle!important;
+                max-width: 100%;
+                max-height: 100%;
+                bottom: 0;
+            }
+        }
+    }
+    .details-prod{
+        width: 50%;
+        padding: 4% 4%;
+        .title-prod{
+            font-size: 15px;
+            text-align: center;
+        }
+        .price-before,.price-now{
+            margin-top: 10px ;
+            .s-text,.price{
+                text-align: center;
+            }
+            .s-text{
+                font-family: "Roboto-regular";
+                font-size: 13px;
+            }
+            .price{
+                font-size: 15px;
+            }
+        }
+        .colors{
+            .s-text-colors{
+                color: #8D8D8D;
+                text-align: center;
+                font-size: 13px;
+                margin-top: 10px;
+                margin-bottom: 5px;
+            }
+            .items-colors{
+                a{
+                    margin: 2px;
+                    div{
+                        height: 16px;
+                        width: 16px;
+                    }
+                }
+
+            }
+        }
+        .property{
+            margin-top: 10px;
+            margin-bottom: 5px;
+            border-top: solid 1px #CECECE;
+            border-bottom: solid 1px #CECECE;
+            .gb,.camara,.size{
+                height: 40px;
+                width: 33.333333333333333333%;
+                font-size: 12px;
+                text-align: center;
+                display: table;
+                span{
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+            }
+            .hr-vertical{
+                height: 40px;
+                hr{
+                    height: 20px;
+                    margin-left: 2px;
+                    margin-right: 2px;
+                }
+            }
+        }
+        .btn-add{
+            a.btn{
+                width: 100%;
+                font-size: 15px;
+                color: white;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-image: linear-gradient(-90deg,#B53830,#e63d3b);
+                border-radius: 10px;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+                -ms-border-radius: 10px;
+                -o-border-radius: 10px;
+            }
+        }
+
+    }
+}

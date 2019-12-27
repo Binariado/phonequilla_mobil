@@ -1,0 +1,49 @@
+.icon-footer{
+    display: none;
+}
+@media(max-width:940px){
+    .content-footer{
+        .card-deck{
+            margin: 4% 2%;
+        }
+        .card-title{
+            width: 100% !important;
+        }
+        .card-deck{
+            flex-flow: column;
+        }
+        .icon-footer{
+            display: inline;
+            cursor: pointer;
+        }
+        .collapse-footer{
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+        .card-hr{
+            width: 100% !important;
+            hr {
+                border: solid 1px #F11C1C !important;
+                width: 100% !important;
+            }
+        }
+        .collapse-footer:not(.show) {
+            display: none !important;
+        }
+        .collapse-footer.show {
+            display: block !important;
+        }
+        .card-not{
+            .card-body{
+                .card-hr{
+                    display: none !important;
+                }
+                .card-title{
+                    width: 55% !important;
+                    margin-top: 8% !important;
+                    margin-bottom: 6% !important;
+                }
+            }
+        }
+    }
+}

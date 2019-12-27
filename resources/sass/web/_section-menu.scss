@@ -1,0 +1,30 @@
+.section-menu{
+    background-color: #F5F5F5;
+    .item-h-left{
+
+    }
+    .item-h-rigth{
+
+    }
+    .nav-item{
+
+        a{
+            font-size: 15px;
+            display: -webkit-box !important;
+            display: flex !important;
+            -webkit-box-align: center !important;
+            align-items: center !important;
+            text-decoration: none;
+            i{
+                font-size: 47.42px;
+                margin-right: 10px;
+             }
+        }
+        a.active{
+            color: $color1 !important;
+            i:before,span:before{
+                color: $color1 !important;
+            }
+        }
+    }
+}

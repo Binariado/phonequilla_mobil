@@ -1,0 +1,76 @@
+
+// Body
+$body-bg: #f8fafc;
+
+// Typography
+$font-family-sans-serif: "Roboto", sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+// Colors
+$blue: #3490dc;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66D9b;
+$red: #e3342f;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$green: #38c172;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+
+$color-page1: #F53F3D;
+$color-page2:#222731;
+
+$color1:#B63634;
+$color2:#8D8D8D;
+$color3: #00758D;
+$color4:#646464;
+
+
+//class
+.t-color1,.t-color1 *{
+    color: $color1 !important;
+    i:before,span:before{
+        color: $color1;
+    }
+}
+.t-color2,.t-color2 *{
+    color: $color2 !important;
+    i:before,span:before{
+        color: $color2 !important;
+    }
+}
+.t-color3,.t-color3 *{
+    color: $color3 !important;
+    i:before,span:before{
+        color: $color3 !important;
+    }
+}
+.t-color4,.t-color4 *{
+    color: $color4 !important;
+    i:before,span:before{
+        color: $color4 !important;
+    }
+}
+.t-color5,.t-color5 *{
+    color: $color-page1 !important;
+    i:before,span:before{
+        color: $color-page1 !important;
+    }
+}
+.t-color6,.t-color6 *{
+    color: $color-page2 !important;
+    i:before,span:before{
+        color: $color-page2 !important;
+    }
+}
+.t-bold{
+    font-weight: bold !important;
+}
+.bg-color1{
+    background-color: $color-page1 !important;
+}
+.bg-color3{
+    background-color: $color3 !important;
+}

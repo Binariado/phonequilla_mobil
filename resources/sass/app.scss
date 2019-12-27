@@ -1,0 +1,28 @@
+
+// Fonts
+//@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+@import'./fonts/fonts';
+@import'./icomoon/style.css';
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+@import '~flickity/css/flickity';
+@import'./general';
+
+//style mobile
+@import'./mobile/app';
+
+//style web
+@import'./web/head';
+@import'./web/section-menu';
+@import'./web/product';
+@import'./web/step';
+@import'./web/shopping';
+@import'./web/footer';
+@import'./web/login';
+@import'./web/profile';
+@import'./web/view-product';
+
