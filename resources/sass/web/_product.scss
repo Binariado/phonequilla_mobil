@@ -32,6 +32,9 @@
     .href_img{
         width: 40%;
     }
+    .content-details-prod{
+        width: 100%;
+    }
     .details-prod{
         width: 55%;
         padding: 4% 4%;
@@ -39,6 +42,9 @@
             font-size: 15px;
             text-align: center;
             height: 48px;
+        }
+        .content-price{
+            height: 110px;
         }
         .price-before,.price-now{
             margin-top: 10px ;
@@ -51,6 +57,7 @@
             }
             .price{
                 font-size: 15px;
+                color: #696969;
             }
         }
         .colors{
@@ -67,6 +74,7 @@
                     div{
                         height: 16px;
                         width: 16px;
+                        box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.40) !important;
                     }
                 }
 

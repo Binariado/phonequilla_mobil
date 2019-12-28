@@ -76,6 +76,18 @@ body {
         margin: 0;
     }
 }
+.hr-vertical_discount {
+    width: 100%;
+    hr {
+        position: relative;
+        border: 1px solid #D43A38;
+        width: 100%;
+        margin: 0;
+        transform: rotateZ(-10deg);
+        bottom: 12px;
+        right: 2px;
+    }
+  }
 
 
 .nav-tap{
