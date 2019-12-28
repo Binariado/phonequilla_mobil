@@ -52240,6 +52240,7 @@ $.ajaxSetup({
 //require('./components/index');
 
 window.dt = __webpack_require__(/*! datatables.net */ "./node_modules/datatables.net/js/jquery.dataTables.js");
+window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js")["default"];
 
 __webpack_require__(/*! ./general */ "./resources/js/general.js");
 
@@ -52251,6 +52252,11 @@ __webpack_require__(/*! ../../node_modules/flickity/dist/flickity.pkgd.min.js */
 
 __webpack_require__(/*! ./profile/profile */ "./resources/js/profile/profile.js");
 
+var reference = document.querySelector('.js-marcas');
+var popper = document.querySelector('.popper-marcas');
+var popper = new Popper(reference, popper, {
+  placement: 'bottom-end'
+});
 $(".js-itmen-m").click(function (e) {
   $(".menu-profile .active").removeClass("active");
   $(".menu-bottom-mobile-profile .active").removeClass("active");

@@ -31,20 +31,36 @@
 
             @endcomponent
         </div>
-        <div id="content-prod-section" class="container">
-            @php
-                $view_sect=$category->count()>0 ? $category[0]->name:null;
-            @endphp
-            @foreach ($category as $cat_item)
-                <div id="{{$cat_item->name}}" class="section-product row mt-5 mb-5 nav-tap {{$view_sect==$cat_item->name? 'show':''}}">
-                    @component('components.product',[
-                        "Catproduct"=>$cat_item->Product
-                    ])
-                    @endcomponent
+        <div class="container mt-5 mb-5">
+            <div class="d-flex justify-content-between">
+                <div class="btn d-flex align-items-center js-marcas">
+                    <span class="t-color2 roboto-regular mr-4">Marcas</span>
+                    <i style="font-size:20px" class="fas fa-angle-down t-color7"></i>
                 </div>
-            @endforeach
+                <div style="border: solid 1px #C3C3C3;" class="btn d-flex align-items-center rounded-pill">
+                    <span class="t-color2 roboto-regular mr-4">Ordenar por:</span>
+                    <i style="font-size:20px" class="fas fa-angle-down t-color7"></i>
+                </div>
+            </div>
+            <div class="popper-iphonq popper-marcas shadow-lg p-4">
+                pure
+            </div>
+            <div id="content-prod-section">
+                @php
+                    $view_sect=$category->count()>0 ? $category[0]->name:null;
+                @endphp
+                @foreach ($category as $cat_item)
+                    <div id="{{$cat_item->name}}" class="section-product row nav-tap {{$view_sect==$cat_item->name? 'show':''}}">
+                        @component('components.product',[
+                            "Catproduct"=>$cat_item->Product
+                        ])
+                        @endcomponent
+                    </div>
+                @endforeach
 
+            </div>
         </div>
+
         <div class="container mb-5">
             <div class="d-flex justify-content-end align-items-center">
                 <div>

@@ -26,6 +26,7 @@ $color1:#B63634;
 $color2:#8D8D8D;
 $color3: #00758D;
 $color4:#646464;
+$color5:#C1C1C1; //.t-color7
 
 
 //class
@@ -63,6 +64,12 @@ $color4:#646464;
     color: $color-page2 !important;
     i:before,span:before{
         color: $color-page2 !important;
+    }
+}
+.t-color7,.t-color7 *{
+    color: $color5 !important;
+    i:before,span:before{
+        color: $color5 !important;
     }
 }
 .t-bold{

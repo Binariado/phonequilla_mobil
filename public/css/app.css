@@ -217,6 +217,18 @@
   color: #222731 !important;
 }
 
+.t-color7,
+.t-color7 * {
+  color: #C1C1C1 !important;
+}
+
+.t-color7 i:before,
+.t-color7 span:before,
+.t-color7 * i:before,
+.t-color7 * span:before {
+  color: #C1C1C1 !important;
+}
+
 .t-bold {
   font-weight: bold !important;
 }
@@ -11950,6 +11962,25 @@ body .load div.c-spinner {
   border-radius: 0px !important;
   border-bottom-right-radius: 50rem !important;
   border-top-right-radius: 50rem !important;
+}
+
+.popper-iphonq {
+  background-color: white;
+}
+
+.popper-marcas {
+  width: 375px;
+}
+
+.popper-marcas:after {
+  content: "";
+  position: absolute;
+  border: 15px solid transparent;
+  border-bottom-color: #fff;
+  top: -32px;
+  border-width: 17px;
+  border-left-width: 42px;
+  border-right-width: 42px;
 }
 
 @media (max-width: 991px) {

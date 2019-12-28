@@ -23,11 +23,19 @@ $.ajaxSetup({
 
 //require('./components/index');
 window.dt = require( 'datatables.net' );
+window.Popper = require('popper.js').default;
 require('./general');
 require('./app/nav');
 require('./product');
 require("../../node_modules/flickity/dist/flickity.pkgd.min.js");
-require('./profile/profile')
+require('./profile/profile');
+
+var reference = document.querySelector('.js-marcas');
+var popper = document.querySelector('.popper-marcas');
+
+var popper = new Popper(reference, popper, {
+    placement: 'bottom-end'
+});
 
 $(".js-itmen-m").click(function(e){
     $(".menu-profile .active").removeClass("active");
