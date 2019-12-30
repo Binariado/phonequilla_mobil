@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Brand extends Model
 {
-    protected $table = 'categories';
+    protected $table = 'brands';
     protected $fillable = ['id','name'];
     public $timestamps = true;
 

@@ -29,13 +29,9 @@ require('./app/nav');
 require('./product');
 require("../../node_modules/flickity/dist/flickity.pkgd.min.js");
 require('./profile/profile');
+require('./filter');
 
-var reference = document.querySelector('.js-marcas');
-var popper = document.querySelector('.popper-marcas');
 
-var popper = new Popper(reference, popper, {
-    placement: 'bottom-end'
-});
 
 $(".js-itmen-m").click(function(e){
     $(".menu-profile .active").removeClass("active");
@@ -58,6 +54,7 @@ $(".js-itmen-m").click(function(e){
 
 
 });
+
 $(".js-collapse").click(function (e) {
     $("#"+$(this).attr("data-target"))
     .toggleClass("show");
@@ -76,9 +73,9 @@ $(".js-collapse").click(function (e) {
         .attr("data-icon","plus");
     }
 
-
 })
 
+//Add class rotate-icon  <i class="... rotate-icon">
 $(".js-collapseP").click(function(){
     const icon=this.querySelector("i");
     if(icon.classList.contains("row-t")){

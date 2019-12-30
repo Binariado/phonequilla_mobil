@@ -11786,6 +11786,14 @@ body .load div.c-spinner {
   margin-left: 0px;
 }
 
+i.rotate-icon:not(.row-t) {
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+}
+
 #iphonequilla {
   width: 100%;
 }
@@ -12407,7 +12415,7 @@ body .load div.c-spinner {
 }
 
 .section-menu .nav-item a i {
-  font-size: 47.42px;
+  font-size: 26.85px;
   margin-right: 10px;
 }
 
@@ -13628,6 +13636,32 @@ body .load div.c-spinner {
   width: 375px;
 }
 
+.popper-marcas .btn {
+  width: 100%;
+  outline: none;
+  -moz-outline-style: none !important;
+}
+
+.popper-marcas .collp-icon_f:before {
+  color: white;
+  margin-bottom: -2px;
+}
+
+.popper-marcas .collp-icon_f {
+  background-color: #B63634;
+  height: 20px;
+  width: 20px;
+  text-align: center;
+}
+
+.popper-marcas .hr-separator {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border: solid 0.5px #DEDEDE;
+  margin: 0;
+}
+
 .popper-marcas:after {
   content: "";
   position: absolute;
@@ -13637,14 +13671,6 @@ body .load div.c-spinner {
   border-width: 17px;
   border-left-width: 42px;
   border-right-width: 42px;
-}
-
-.popper-marcas:after .btn {
-  width: 100%;
-}
-
-.popper-marcas:after .collp-icon_f {
-  background-color: #B63634;
 }
 
 .profile-section .dataTables_filter {
@@ -13873,14 +13899,6 @@ body .load div.c-spinner {
   border-radius: 0px !important;
   border-bottom-right-radius: 50rem !important;
   border-top-right-radius: 50rem !important;
-}
-
-.profile-section i.rotate-icon:not(.row-t) {
-  transform: rotate(180deg);
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
 }
 
 .profile-section .wish-list {

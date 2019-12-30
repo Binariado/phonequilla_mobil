@@ -43,7 +43,9 @@ Route::group(['prefix' => 'users/profile', 'middleware' => 'auth'], function () 
     Route::post('address-notebook', 'ProfileController@address');
 });
 
-Auth::routes();
+Route::group(['prefix' => 'filter'], function () {
+    Route::post('filter-brands', 'BrandsController@FilterBrand')->name('FilterBrand');
+});
 
 
 Route::get('recover',function(){
@@ -52,7 +54,7 @@ Route::get('recover',function(){
 
 Auth::routes(['verify' => true]);
 
-
+Auth::routes();
 // Route::get('/storage-link', function () {
 //     Artisan::call('storage:link');
 // });
