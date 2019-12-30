@@ -2,6 +2,10 @@
 .popper-iphonq{
     background-color: white;
 }
+.popper-none{
+    display: none;
+}
+
 .popper-marcas{
     width: 375px;
     .btn{
@@ -24,6 +28,11 @@
         object-fit: contain;
         border: solid 0.5px #DEDEDE;
         margin: 0;
+    }
+    .btn.active{
+        padding-left: 2%;
+        color: $color1;
+        font-family: "Roboto-bold";
     }
 }
 .popper-marcas:after{

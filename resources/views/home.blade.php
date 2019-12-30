@@ -55,7 +55,7 @@
                     $view_sect=$category->count()>0 ? $category[0]->name:null;
                 @endphp
                 @foreach ($category as $cat_item)
-                    <div id="{{$cat_item->name}}" class="section-product row nav-tap {{$view_sect==$cat_item->name? 'show':''}}">
+                    <div data-status="false" data-id="{{$cat_item->id}}"  id="{{$cat_item->name}}" class="section-product row nav-tap {{$view_sect==$cat_item->name? 'show':''}}">
                         @component('components.product',[
                             "Catproduct"=>$cat_item->Product
                         ])

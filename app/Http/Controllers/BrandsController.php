@@ -12,13 +12,6 @@ class BrandsController extends Controller
 {
     public function FilterBrand(Request $request)
     {
-        // $brand=Category::all()->where('name', $request->category)->first();
-        // $product=Product::all()->where('category_id',[$brand->id])->groupBy("brand_id");
-
-        // return DB::table('products')
-        // ->join("categories", "categories.id",'=',"products.category_id")
-        // ->where("categories.name",$request->category)
-        // ->groupBy("products.brand_id")
-        // ->get();
+       return Brand::all()->where('category_id', $request->category);
     }
 }

@@ -13632,6 +13632,10 @@ i.rotate-icon:not(.row-t) {
   background-color: white;
 }
 
+.popper-none {
+  display: none;
+}
+
 .popper-marcas {
   width: 375px;
 }
@@ -13660,6 +13664,12 @@ i.rotate-icon:not(.row-t) {
      object-fit: contain;
   border: solid 0.5px #DEDEDE;
   margin: 0;
+}
+
+.popper-marcas .btn.active {
+  padding-left: 2%;
+  color: #B63634;
+  font-family: "Roboto-bold";
 }
 
 .popper-marcas:after {

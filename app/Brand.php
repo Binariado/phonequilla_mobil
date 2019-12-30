@@ -11,7 +11,10 @@ class Brand extends Model
     public $timestamps = true;
 
 
-     public function Product(){
+    public function Product(){
          return $this->hasMany('App\Product');
-     }
+    }
+    public function Categories(){
+        return $this->belongsTo('App\Category');
+    }
 }
