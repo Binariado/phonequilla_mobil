@@ -9,7 +9,7 @@ $(document).on("click touchend",function(e){
     if(target.is($(popper_elm))) return;
     if(target.is($('.js-marcas-popper, .js-marcas-popper>span, .js-marcas-popper>i'))) {
         e.preventDefault();
-        $(popper_elm).show();
+        $(popper_elm).show(); 
 
         var popper = new Popper(reference, popper_elm, {
             placement: 'bottom-end'
