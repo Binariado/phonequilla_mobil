@@ -6,5 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cities extends Model
 {
-    //
+    protected $table = 'cities';
+    protected $fillable = ['id','name','departament_id'];
+    public $timestamps = true;
+
+    public function Departaments(){
+        return $this->hasMany('App\Departaments','departament_id');
+    }
 }

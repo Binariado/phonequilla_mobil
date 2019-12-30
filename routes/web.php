@@ -17,6 +17,7 @@ Route::get('/compra', function () {
     return view('components.order');
 });
 
+
 Route::get('/','ProductController@index');
 
 
@@ -41,6 +42,8 @@ Route::get('search/{search}', 'ProductController@search');
 Route::group(['prefix' => 'users/profile', 'middleware' => 'auth'], function () {
     Route::resource('/', 'ProfileController');
     Route::post('address-notebook', 'ProfileController@address');
+    Route::post('/users/profile/address-notebook','UserAddressController@store');
+    Route::post('/cities-global','UserAddressController@cities');
 });
 
 Route::group(['prefix' => 'filter'], function () {

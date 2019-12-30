@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\User_address;
+use App\Cities;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Validator;
+use Auth;
 class UserAddressController extends Controller
 {
     /**
@@ -35,7 +37,16 @@ class UserAddressController extends Controller
      */
     public function store(Request $request)
     {
-        //
+     $address=new User_address();
+     $address->user_id=Auth::user()->id;
+     $address->city_id=$request->city;
+     $address->state_id=$request->state;
+     $address->neighborhood=$request->neighborhood;
+     $address->address=$request->address;
+     $address->address_detail=$request->address_detail;
+     $address->address_site=$request->address_site;
+     $address->save();
+     return "hola mundo";
     }
 
     /**
@@ -44,6 +55,7 @@ class UserAddressController extends Controller
      * @param  \App\User_address  $user_address
      * @return \Illuminate\Http\Response
      */
+
     public function show(User_address $user_address)
     {
         //
@@ -81,5 +93,9 @@ class UserAddressController extends Controller
     public function destroy(User_address $user_address)
     {
         //
+    }
+    public function cities()
+    {
+       return Cities::all();
     }
 }

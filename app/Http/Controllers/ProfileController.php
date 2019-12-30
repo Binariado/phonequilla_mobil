@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 use App\Product;
 use Illuminate\Http\Request;
-
+use App\User;
+use Auth;
+use App\Departments;
+use App\Cities;
+use Illuminate\Support\Facades\Crypt;
 class ProfileController extends Controller
 {
     /**
@@ -13,9 +17,12 @@ class ProfileController extends Controller
      */
     public function index()
     {
+
+        $departments=Departments::all();
         $products = [];
         return view("profile.index",[
-            'product'=>$products
+            'product'=>$products,
+            'departments'=>$departments,
         ]);
     }
 
@@ -69,9 +76,21 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $profile)
     {
-        //
+        $profile->update($request->all());
+    }
+
+    public function password(Request $request){
+     
+        $user=Auth::user();
+        $password=\Hash::check($request->password_old, $user->password);
+        if($user){
+           $user->password=\Hash::make($request->new_password);
+           $user->save();      
+        }
+        
+
     }
 
     /**
