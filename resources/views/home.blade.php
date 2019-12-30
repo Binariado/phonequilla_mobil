@@ -43,7 +43,13 @@
                 </div>
             </div>
             <div class="popper-iphonq popper-marcas shadow-lg p-4">
-                pure
+                <a class="btn d-flex justify-content-between" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Iphone
+                    <div class="collp-icon_f">
+                        <i class="fas fa-angle-down d-flex align-items-center"></i>
+                    </div>
+                </a>
+
             </div>
             <div id="content-prod-section">
                 @php

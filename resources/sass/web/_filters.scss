@@ -1,0 +1,24 @@
+//Filters
+.popper-iphonq{
+    background-color: white;
+}
+.popper-marcas{
+    width: 375px;
+}
+.popper-marcas:after{
+    content: "";
+    position: absolute;
+    border: 15px solid transparent;
+    border-bottom-color: #fff;
+    //bottom: calc(-46% - 4px);
+    top: -32px;
+    border-width: 17px;
+    border-left-width: 42px;
+    border-right-width: 42px;
+    .btn{
+        width: 100%;
+    }
+    .collp-icon_f{
+        background-color: $color1;
+    }
+}
