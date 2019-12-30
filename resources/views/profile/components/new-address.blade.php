@@ -15,11 +15,11 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label class="" for="departament">Departamento</label>
-                    <select class="form-control custom-select js-required" name="department" id="department">
+                    <select class="form-control custom-select js-required" name="state" id="department">
                         <option value="" selected hidden>Seleccione..</option>
-                        {{--  @foreach ($departments as $department)
+                          @foreach ($departments as $department)
                             <option value="{{ $department->id }}">{{ $department->name }}</option>
-                        @endforeach  --}}
+                        @endforeach  
                     </select>
                     <div class="invalid-feedback">
                         Este campo es requerido
@@ -46,7 +46,7 @@
 
                 <div class="form-group col-md-6">
                     <label class="" for="datalisAddress">Detalles de la dirección</label>
-                    <input type="text" class="form-control js-required" id="datalisAddress" name="datalisAddress" >
+                    <input type="text" class="form-control js-required" id="datalisAddress" name="address_detail" >
                     <div class="invalid-feedback">
                         Este campo es requerido
                     </div>
@@ -54,14 +54,14 @@
 
                 <div class="form-group col-md-6">
                     <label class="" for="barrio">Barrio</label>
-                    <input type="text" class="form-control js-required" name="barrio" id="barrio" >
+                    <input type="text" class="form-control js-required" name="neighborhood" id="barrio" >
                     <div class="invalid-feedback">
                         Este campo es requerido
                     </div>
                 </div>
                 <div class="form-group col-md-6">
                     <label class="" for="place">Nombre del lugar</label>
-                    <input type="text" class="form-control js-required" name="place" id="place">
+                    <input type="text" class="form-control js-required" name="address_site" id="place">
                     <div class="invalid-feedback">
                         Este campo es requerido
                     </div>

@@ -79,8 +79,12 @@
 
                 <div class="tab-profile m-c" id="address">
                     <div class="item-profile-c p-4">
-                        @component('profile.components.new-address')
-
+                   
+                    
+                        @component('profile.components.new-address',[
+                            'departments'=>$departments
+                        ])
+            
                         @endcomponent
                     </div>
                 </div>
