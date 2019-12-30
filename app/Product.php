@@ -12,13 +12,16 @@ class Product extends Model
     public $timestamps = true;
 
 
-     public function Category(){
+    public function Category(){
          return $this->belongsTo('App\Category');
-     }
-     public function ProductDetail(){
+    }
+    public function Brand(){
+        return $this->belongsTo('App\Brand');
+    }
+    public function ProductDetail(){
         return $this->belongsTo('App\ProductDetail');
     }
-     public function Order_item(){
+    public function Order_item(){
         return $this->hasMany('App\Order_item');
     }
 }

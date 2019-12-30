@@ -52252,11 +52252,8 @@ __webpack_require__(/*! ../../node_modules/flickity/dist/flickity.pkgd.min.js */
 
 __webpack_require__(/*! ./profile/profile */ "./resources/js/profile/profile.js");
 
-var reference = document.querySelector('.js-marcas');
-var popper = document.querySelector('.popper-marcas');
-var popper = new Popper(reference, popper, {
-  placement: 'bottom-end'
-});
+__webpack_require__(/*! ./filter */ "./resources/js/filter.js");
+
 $(".js-itmen-m").click(function (e) {
   $(".menu-profile .active").removeClass("active");
   $(".menu-bottom-mobile-profile .active").removeClass("active");
@@ -52274,7 +52271,8 @@ $(".js-collapse").click(function (e) {
   } else {
     $(icon).attr("class", "fas fa-plus").attr("data-icon", "plus");
   }
-});
+}); //Add class rotate-icon  <i class="... rotate-icon">
+
 $(".js-collapseP").click(function () {
   var icon = this.querySelector("i");
 
@@ -52500,6 +52498,33 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/filter.js":
+/*!********************************!*\
+  !*** ./resources/js/filter.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var reference = document.querySelector('.js-marcas-popper');
+var popper = document.querySelector('.popper-marcas');
+
+try {
+  var popper = new Popper(reference, popper, {
+    placement: 'bottom-end'
+  });
+} catch (error) {} //section-product
+
+
+$(".js-brand-action").click(function () {
+  $.post("/filter/filter-brands", {
+    category: $(".section-product.show").attr("id")
+  }).done(function (data) {
+    console.log(data);
+  });
+});
 
 /***/ }),
 

@@ -4,6 +4,27 @@
 }
 .popper-marcas{
     width: 375px;
+    .btn{
+        width: 100%;
+        outline: none;
+        -moz-outline-style: none !important;
+    }
+    .collp-icon_f:before{
+        color:white;
+        margin-bottom: -2px;
+    }
+    .collp-icon_f{
+        background-color: $color1;
+        height: 20px;
+        width: 20px;
+        text-align: center;
+    }
+    .hr-separator{
+        width: 100%;
+        object-fit: contain;
+        border: solid 0.5px #DEDEDE;
+        margin: 0;
+    }
 }
 .popper-marcas:after{
     content: "";
@@ -15,10 +36,4 @@
     border-width: 17px;
     border-left-width: 42px;
     border-right-width: 42px;
-    .btn{
-        width: 100%;
-    }
-    .collp-icon_f{
-        background-color: $color1;
-    }
 }

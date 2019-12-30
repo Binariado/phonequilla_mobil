@@ -37,6 +37,13 @@ body {
     margin-right: 0px;
     margin-left: 0px;
 }
+i.rotate-icon:not(.row-t){
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+}
 #iphonequilla{
     width:100%;
 }
@@ -76,6 +83,7 @@ body {
         margin: 0;
     }
 }
+
 .hr-vertical_discount {
     width: 100%;
     hr {
@@ -115,8 +123,6 @@ body {
 }
 
 
-
-
 .style-group-input1{
     input,select{
         object-fit: contain;
@@ -140,6 +146,7 @@ body {
         width: 100%;
     }
 }
+
 .style-input1{
     border: solid 1px #8D8D8D;
     display: block;

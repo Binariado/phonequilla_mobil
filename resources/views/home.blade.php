@@ -31,9 +31,10 @@
 
             @endcomponent
         </div>
+
         <div class="container mt-5 mb-5">
             <div class="d-flex justify-content-between">
-                <div class="btn d-flex align-items-center js-marcas">
+                <div target-brand="" class="btn d-flex align-items-center js-brand-action js-marcas-popper">
                     <span class="t-color2 roboto-regular mr-4">Marcas</span>
                     <i style="font-size:20px" class="fas fa-angle-down t-color7"></i>
                 </div>
@@ -42,15 +43,13 @@
                     <i style="font-size:20px" class="fas fa-angle-down t-color7"></i>
                 </div>
             </div>
-            <div class="popper-iphonq popper-marcas shadow-lg p-4">
-                <a class="btn d-flex justify-content-between" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    Iphone
-                    <div class="collp-icon_f">
-                        <i class="fas fa-angle-down d-flex align-items-center"></i>
-                    </div>
-                </a>
 
-            </div>
+            @component('components.filter',[
+                "class"=>"popper-marcas"
+            ])
+
+            @endcomponent
+
             <div id="content-prod-section">
                 @php
                     $view_sect=$category->count()>0 ? $category[0]->name:null;
