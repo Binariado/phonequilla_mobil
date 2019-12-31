@@ -64,10 +64,10 @@
                     </div> --}}
 
                     <div class="d-flex flex-row bd-highlight mb-3 card-icon">
-                        <a class="p-2 bd-highlight">
+                        <a class="p-2 bd-highlight" href="{{$info->url_facebook}}" target="_blank">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a class="p-2 bd-highlight">
+                        <a class="p-2 bd-highlight" href="{{$info->url_instagram}}" target="_blank">
                             <i class="fab fa-instagram"></i>
                         </a>
                     </div>

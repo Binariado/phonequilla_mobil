@@ -15,7 +15,7 @@
         </li>
         <li class="nav-item content-searchbar">
             <div class="nav-link">
-                <div class="searchbar d-flex">
+                <div class="searchbar d-flex justify-content-center">
                     <input class="search_input1" type="text" name="" placeholder="¿Qué estas buscando?">
                     <a href="#" class="search_icon d-flex align-items-center justify-content-center">
                         <i class="icon-Grupo-7"></i>

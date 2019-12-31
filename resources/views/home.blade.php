@@ -57,7 +57,7 @@
                 @foreach ($category as $cat_item)
                     <div data-status="false" data-id="{{$cat_item->id}}"  id="{{$cat_item->name}}" class="section-product row nav-tap {{$view_sect==$cat_item->name? 'show':''}}">
                         @component('components.product',[
-                            "Catproduct"=>$cat_item->Product
+                            "Catproduct"=>$cat_item->Product->forPage(1,6)
                         ])
                         @endcomponent
                     </div>
@@ -89,5 +89,15 @@
             </div>
         </div>
     </section>
+    <div class="container mt-5 mb-5">
+        <div id="content-prod-section">
+            <div  class="section-product row">
+                @component('components.product',[
+                    "Catproduct"=>$category->first()->Product->forPage(1,3)
+                ])
+                @endcomponent
+            </div>
+        </div>
+    </div>
 @endsection
 
