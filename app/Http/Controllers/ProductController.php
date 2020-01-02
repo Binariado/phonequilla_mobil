@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\Category;
 use App\Info;
+use Auth;
 use Illuminate\Http\Request;
-
+use App\ProductFavorite;
 class ProductController extends Controller
 {
     /**
@@ -58,7 +59,7 @@ class ProductController extends Controller
         $product_=Product::all()->forPage(1,3);
         return view('product.view-prod', [
             'product'=>$products,
-            "product_"=>$product_
+            "product_"=>$proProductduct_
         ]);
     }
 
@@ -101,5 +102,22 @@ class ProductController extends Controller
   return view('search',[
     'producto'=> $products
   ]);
+  }
+
+
+  public function addfavorite($id){
+
+       $products=Product::where('id',$id)->first();
+       $products->favorite=$products->favorite+1;
+       $products->save();
+       $favorite=new ProductFavorite();
+       $favorite->user_id=Auth::user();
+       $favorite->product_id=$id;
+       $favorite->save();
+  }
+
+  public function favorite(){
+    $favorite=ProductFavorite::all();
+    
   }
 }

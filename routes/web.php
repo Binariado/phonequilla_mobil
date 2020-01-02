@@ -42,7 +42,7 @@ Route::get('search/{search}', 'ProductController@search');
 Route::group(['prefix' => 'users/profile', 'middleware' => 'auth'], function () {
     Route::resource('/', 'ProfileController');
     Route::post('address-notebook', 'ProfileController@address');
-    Route::post('/users/profile/address-notebook','UserAddressController@store');
+    Route::post('address-notebook','UserAddressController@store');
     Route::post('/cities-global','UserAddressController@cities');
 });
 
@@ -61,3 +61,5 @@ Auth::routes();
 // Route::get('/storage-link', function () {
 //     Artisan::call('storage:link');
 // });
+
+Route::post('favorite','ProductController@addfavorite');

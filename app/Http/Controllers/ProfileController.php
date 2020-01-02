@@ -7,6 +7,7 @@ use App\User;
 use Auth;
 use App\Departments;
 use App\Cities;
+use App\ProductFavorite;
 use Illuminate\Support\Facades\Crypt;
 class ProfileController extends Controller
 {
@@ -17,12 +18,13 @@ class ProfileController extends Controller
      */
     public function index()
     {
-
+       $favorites=ProductFavorite::where('user_id',Auth::user())->get();
         $departments=Departments::all();
         $products = [];
         return view("profile.index",[
             'product'=>$products,
             'departments'=>$departments,
+            'favorites'=>$favorites,
         ]);
     }
 

@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\User_address;
-use App\Cities;
+use App\Profuct_favorite;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use Auth;
-class UserAddressController extends Controller
+
+class ProfuctFavoriteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,26 +35,16 @@ class UserAddressController extends Controller
      */
     public function store(Request $request)
     {
-     $address=new User_address();
-     $address->user_id=Auth::user()->id;
-     $address->city_id=$request->city;
-     $address->state_id=$request->state;
-     $address->neighborhood=$request->neighborhood;
-     $address->address=$request->address;
-     $address->address_detail=$request->address_detail;
-     $address->address_site=$request->address_site;
-     $address->save();
-     
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\User_address  $user_address
+     * @param  \App\Profuct_favorite  $profuct_favorite
      * @return \Illuminate\Http\Response
      */
-
-    public function show(User_address $user_address)
+    public function show(Profuct_favorite $profuct_favorite)
     {
         //
     }
@@ -64,10 +52,10 @@ class UserAddressController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\User_address  $user_address
+     * @param  \App\Profuct_favorite  $profuct_favorite
      * @return \Illuminate\Http\Response
      */
-    public function edit(User_address $user_address)
+    public function edit(Profuct_favorite $profuct_favorite)
     {
         //
     }
@@ -76,10 +64,10 @@ class UserAddressController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User_address  $user_address
+     * @param  \App\Profuct_favorite  $profuct_favorite
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User_address $user_address)
+    public function update(Request $request, Profuct_favorite $profuct_favorite)
     {
         //
     }
@@ -87,15 +75,11 @@ class UserAddressController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\User_address  $user_address
+     * @param  \App\Profuct_favorite  $profuct_favorite
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User_address $user_address)
+    public function destroy(Profuct_favorite $profuct_favorite)
     {
         //
-    }
-    public function cities()
-    {
-       return Cities::all();
     }
 }
