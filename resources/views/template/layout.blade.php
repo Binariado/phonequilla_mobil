@@ -21,7 +21,7 @@
     <meta property="og:title" content="Iphone"/>
     <meta property="og:type" content="Website"/>
     <meta property="og:url" content="{{url('/')}}"/>
-
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" type="image/png" href="{{ asset("logos/favicon.png") }}" sizes="32x32" />
     {{-- <link rel="shortcut icon" type="image/png" href="{{ asset("logos/favicon.png") }}" sizes="16x16" /> --}}
     {{-- <meta property="og:image" content="{{asset('img/seo.png')}}"/> --}}

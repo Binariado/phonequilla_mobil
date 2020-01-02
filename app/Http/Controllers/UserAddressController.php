@@ -37,16 +37,19 @@ class UserAddressController extends Controller
      */
     public function store(Request $request)
     {
-     $address=new User_address();
-     $address->user_id=Auth::user()->id;
-     $address->city_id=$request->city;
-     $address->state_id=$request->state;
-     $address->neighborhood=$request->neighborhood;
-     $address->address=$request->address;
-     $address->address_detail=$request->address_detail;
-     $address->address_site=$request->address_site;
-     $address->save();
-     
+        $address=new User_address();
+        $address->user_id=Auth::user()->id;
+        $address->city_id=$request->city_a;
+        $address->department_id=$request->department_a;
+        $address->neighborhood=$request->neighborhood_a;
+        $address->address=$request->address_a;
+        $address->address_detail=$request->address_detail_a;
+        $address->address_site=$request->address_site;
+        $address->state=1;
+        if($address->save()){
+            return 1;
+        }
+        return 0;
     }
 
     /**
@@ -96,6 +99,6 @@ class UserAddressController extends Controller
     }
     public function cities()
     {
-       return Cities::all()->grubBys("departament_id");
+       return Cities::all()->groupBy("departament_id");
     }
 }

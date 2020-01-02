@@ -10,6 +10,7 @@ window._ = require('lodash');
 window.$ = window.jQuery = require('jquery');
 window.loadSpinner = require("./app/spinner-load");
 
+
 $.ajaxSetup({
     headers: {
         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
@@ -22,8 +23,11 @@ $.ajaxSetup({
  */
 
 //require('./components/index');
+window.Swal=require('sweetalert2');
 window.dt = require( 'datatables.net' );
+require('gijgo');
 window.Popper = require('popper.js').default;
+require('./app/validate');
 require('./general');
 require('./app/nav');
 require('./product');

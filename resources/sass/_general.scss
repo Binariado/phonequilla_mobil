@@ -22,6 +22,18 @@ body {
     }
   }
 }
+
+.gj-icon{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-right: 7px;
+}
+#birthday:not(.is-valid){
+    .gj-icon{
+        margin-right: 20px;
+    }
+}
 .wp-float-desktop {
     position: fixed;
     right: 1%;

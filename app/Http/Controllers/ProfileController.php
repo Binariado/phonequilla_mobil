@@ -7,7 +7,9 @@ use App\User;
 use Auth;
 use App\Departments;
 use App\Cities;
+use App\Countries;
 use App\ProductFavorite;
+use App\Document_Type;
 use Illuminate\Support\Facades\Crypt;
 class ProfileController extends Controller
 {
@@ -18,12 +20,14 @@ class ProfileController extends Controller
      */
     public function index()
     {
-       $favorites=ProductFavorite::where('user_id',Auth::user())->get();
+        $favorites=ProductFavorite::where('user_id',Auth::user())->get();
         $departments=Departments::all();
         $products = [];
         return view("profile.index",[
             'product'=>$products,
             'departments'=>$departments,
+            'Document_Type'=>Document_Type::all(),
+            'Countries'=>Countries::all(),
             'favorites'=>$favorites,
         ]);
     }
@@ -80,16 +84,17 @@ class ProfileController extends Controller
      */
     public function update(Request $request, User $profile)
     {
+        return $request;
         $profile->update($request->all());
     }
 
     public function password(Request $request){
-     
+
         $user=Auth::user();
         $password=\Hash::check($request->password_old, $user->password);
         if($user){
            $user->password=\Hash::make($request->new_password);
-           $user->save();      
+           $user->save();
         }
     }
 

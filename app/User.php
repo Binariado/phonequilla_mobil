@@ -40,7 +40,9 @@ class User extends \TCG\Voyager\Models\User
     public function User_address(){
         return $this->hasMany('App\User_address');
     }
-
+    public function AddressMain(){
+        return $this->hasMany('App\AddressMain');
+    }
     public function User_detail(){
         return $this->hasMany('App\User_detail');
     }

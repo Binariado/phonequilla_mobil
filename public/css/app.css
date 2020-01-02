@@ -11770,6 +11770,19 @@ body .load div.c-spinner {
   text-align: center;
 }
 
+.gj-icon {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  height: 100%;
+  margin-right: 7px;
+}
+
+#birthday:not(.is-valid) .gj-icon {
+  margin-right: 20px;
+}
+
 .wp-float-desktop {
   position: fixed;
   right: 1%;
