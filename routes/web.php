@@ -60,3 +60,5 @@ Auth::routes();
 // Route::get('/storage-link', function () {
 //     Artisan::call('storage:link');
 // });
+
+Route::post('favorite','ProductController@addfavorite');

@@ -46,7 +46,7 @@ class UserAddressController extends Controller
      $address->address_detail=$request->address_detail;
      $address->address_site=$request->address_site;
      $address->save();
-     return "hola mundo";
+     
     }
 
     /**

@@ -1,15 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Product;
+
+use App\Profuct_favorite;
 use Illuminate\Http\Request;
-use App\User;
-use Auth;
-use App\Departments;
-use App\Cities;
-use App\ProductFavorite;
-use Illuminate\Support\Facades\Crypt;
-class ProfileController extends Controller
+
+class ProfuctFavoriteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,14 +14,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-       $favorites=ProductFavorite::where('user_id',Auth::user())->get();
-        $departments=Departments::all();
-        $products = [];
-        return view("profile.index",[
-            'product'=>$products,
-            'departments'=>$departments,
-            'favorites'=>$favorites,
-        ]);
+        //
     }
 
     /**
@@ -52,10 +41,10 @@ class ProfileController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Profuct_favorite  $profuct_favorite
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Profuct_favorite $profuct_favorite)
     {
         //
     }
@@ -63,10 +52,10 @@ class ProfileController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Profuct_favorite  $profuct_favorite
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Profuct_favorite $profuct_favorite)
     {
         //
     }
@@ -75,36 +64,22 @@ class ProfileController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Profuct_favorite  $profuct_favorite
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $profile)
+    public function update(Request $request, Profuct_favorite $profuct_favorite)
     {
-        $profile->update($request->all());
-    }
-
-    public function password(Request $request){
-     
-        $user=Auth::user();
-        $password=\Hash::check($request->password_old, $user->password);
-        if($user){
-           $user->password=\Hash::make($request->new_password);
-           $user->save();      
-        }
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Profuct_favorite  $profuct_favorite
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Profuct_favorite $profuct_favorite)
     {
         //
-    }
-    public function address(Request $request)
-    {
-        return $request;
     }
 }
