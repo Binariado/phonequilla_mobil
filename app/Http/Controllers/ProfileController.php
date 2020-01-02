@@ -89,8 +89,6 @@ class ProfileController extends Controller
            $user->password=\Hash::make($request->new_password);
            $user->save();      
         }
-        
-
     }
 
     /**

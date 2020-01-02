@@ -96,6 +96,6 @@ class UserAddressController extends Controller
     }
     public function cities()
     {
-       return Cities::all();
+       return Cities::all()->grubBys("departament_id");
     }
 }

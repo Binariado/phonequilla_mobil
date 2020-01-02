@@ -41,15 +41,14 @@ Route::get('search/{search}', 'ProductController@search');
 
 Route::group(['prefix' => 'users/profile', 'middleware' => 'auth'], function () {
     Route::resource('/', 'ProfileController');
-    Route::post('address-notebook', 'ProfileController@address');
-    Route::post('/users/profile/address-notebook','UserAddressController@store');
-    Route::post('/cities-global','UserAddressController@cities');
+    Route::post('address-notebook-person', 'ProfileController@address');
+    Route::post('address-notebook','UserAddressController@store');
+    Route::post('cities-global','UserAddressController@cities');
 });
 
 Route::group(['prefix' => 'filter'], function () {
     Route::post('filter-brands', 'BrandsController@FilterBrand')->name('FilterBrand');
 });
-
 
 Route::get('recover',function(){
     return view('auth.verify');
