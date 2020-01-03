@@ -4,7 +4,7 @@
         <div class="bd-highlight img-s-p">
             <div class="img-shopping-prod">
                 <div>
-                    <img src="{{$prod->img}}" alt="">
+                    <img src="{{"https://iphonequilla.com.co/storage/".$prod->img}}" alt="">
                 </div>
             </div>
         </div>

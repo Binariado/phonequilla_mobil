@@ -59,34 +59,30 @@
                                </li>
                         </div> --}}
                     </ul>
-
-                    <div class="d-flex justify-content-center">
-
-                        <div class="js-field-change">
-                            <div data-step="1" class="product-shopping w-sho js-step-action">
-                                @foreach ($cartContent as $cat)
-                                    @component('cart.shopping-product',[
-                                        'cart'=>$cat,
-                                        'prod'=>$product->where("id",$cat->id)->first()
-                                    ])
-                                    @endcomponent
-                                @endforeach
+                </div>
+                    <div class="content-update">
+                        <div class="d-flex justify-content-center">
+                            <div class="js-field-change">
+                                <div data-step="1" class="product-shopping w-sho js-step-action">
+                                    @foreach ($cartContent as $cat)
+                                        @component('cart.shopping-product',[
+                                            'cart'=>$cat,
+                                            'prod'=>$product->where("id",$cat->id)->first()
+                                        ])
+                                        @endcomponent
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
 
+                        <div class="d-flex justify-content-center go-purchase btn-init-purchases js-init-go-purchase">
+                                {{-- href="{{url("/shopping_cart/shipping-cart")}}" --}}
+                            <button class="btn js-purchase-field pl-5 pr-5 f-R-bold" role="button" disabled>
+                                Ir a comprar
+                            </button>
+                        </div>
                     </div>
 
-                    {{-- <div class="order-summary">
-
-                    </div> --}}
-
-                    <div class="d-flex justify-content-center go-purchase btn-init-purchases js-init-go-purchase">
-                            {{-- href="{{url("/shopping_cart/shipping-cart")}}" --}}
-                        <button class="btn js-purchase-field pl-5 pr-5 f-R-bold" role="button" disabled>
-                            Ir a comprar
-                        </button>
-                    </div>
-                </div>
 
 
             </section>

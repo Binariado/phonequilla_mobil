@@ -28,11 +28,15 @@ Route::group(['prefix' => 'admin'], function () {
 Route::group(['prefix' => 'shopping'], function () {
     //CARRITO DE COMPRA Y TRANSACCIÓN
     Route::resource('/cart', 'CartController');
+    Route::post('purchase', 'CartController@purchase');
+    Route::post('shipment-details', 'CartController@shipmentDetails');
+    Route::post('cities-global','CartController@cities');
 });
 
 Route::resource('product', 'ProductController');
 
 Route::get('compro', 'OrderItemController@index');
+
 //Añadir Carrito
 Route::post('cart/{id}', 'CartController@add');
 
@@ -42,6 +46,7 @@ Route::get('search/{search}', 'ProductController@search');
 Route::group(['prefix' => 'users/profile', 'middleware' => 'auth'], function () {
     Route::resource('/', 'ProfileController');
     Route::post('address-notebook-person', 'ProfileController@update');
+    Route::post('new-password','ProfileController@password');
     Route::post('address-notebook','UserAddressController@store');
     Route::post('cities-global','UserAddressController@cities');
 });

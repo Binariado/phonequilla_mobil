@@ -35,8 +35,6 @@ require("../../node_modules/flickity/dist/flickity.pkgd.min.js");
 require('./profile/profile');
 require('./filter');
 
-
-
 $(".js-itmen-m").click(function(e){
     $(".menu-profile .active").removeClass("active");
     $(".menu-bottom-mobile-profile .active").removeClass("active");
@@ -55,7 +53,6 @@ $(".js-itmen-m").click(function(e){
 
     $($(this).attr("data-target"))
     .addClass("active");
-
 
 });
 

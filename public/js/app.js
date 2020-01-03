@@ -1396,7 +1396,7 @@ module.exports = function spread(callback) {
 
 
 var bind = __webpack_require__(/*! ./helpers/bind */ "./node_modules/axios/lib/helpers/bind.js");
-var isBuffer = __webpack_require__(/*! is-buffer */ "./node_modules/axios/node_modules/is-buffer/index.js");
+var isBuffer = __webpack_require__(/*! is-buffer */ "./node_modules/is-buffer/index.js");
 
 /*global toString:true*/
 
@@ -1696,28 +1696,6 @@ module.exports = {
   extend: extend,
   trim: trim
 };
-
-
-/***/ }),
-
-/***/ "./node_modules/axios/node_modules/is-buffer/index.js":
-/*!************************************************************!*\
-  !*** ./node_modules/axios/node_modules/is-buffer/index.js ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/*!
- * Determine if an object is a Buffer
- *
- * @author   Feross Aboukhadijeh <https://feross.org>
- * @license  MIT
- */
-
-module.exports = function isBuffer (obj) {
-  return obj != null && obj.constructor != null &&
-    typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
-}
 
 
 /***/ }),
@@ -39197,6 +39175,28 @@ gj.colorpicker.widget.constructor = gj.colorpicker.widget;
 
 /***/ }),
 
+/***/ "./node_modules/is-buffer/index.js":
+/*!*****************************************!*\
+  !*** ./node_modules/is-buffer/index.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/*!
+ * Determine if an object is a Buffer
+ *
+ * @author   Feross Aboukhadijeh <https://feross.org>
+ * @license  MIT
+ */
+
+module.exports = function isBuffer (obj) {
+  return obj != null && obj.constructor != null &&
+    typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/jquery/dist/jquery.js":
 /*!********************************************!*\
   !*** ./node_modules/jquery/dist/jquery.js ***!
@@ -74127,7 +74127,10 @@ $('.carousel').carousel({
   !*** ./resources/js/product.js ***!
   \*********************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+//require('./components/components-react');
+var step = __webpack_require__(/*! ./step */ "./resources/js/step.js");
 
 $('.js-addProduct').click(function () {
   $.post("cart/" + this.dataset.id, {
@@ -74135,13 +74138,7 @@ $('.js-addProduct').click(function () {
   }).done(function (data) {
     console.log(data);
   });
-}); // $(".js-view-product").click(function (e) {
-//     if(e.target.classList.contains("js-addProduct")==false){
-//         console.log(e.target);
-//         //window.location.href="/"
-//     }
-// })
-
+});
 $(document).ready(function () {
   var main_view = $(".main-product-detail").flickity({
     wrapAround: true,
@@ -74152,6 +74149,16 @@ $(document).ready(function () {
   });
   $(document.body).resize(function () {
     main_view.flickity('resize');
+  });
+});
+var contentUpdate = document.querySelector(".content-update");
+$(document).ready(function () {
+  step.active($(".js-step-action").attr("data-step"));
+  $(".js-purchase-field").removeAttr("disabled").click(function () {
+    $.post("/shopping/purchase").done(function (data) {
+      $(contentUpdate).html(data);
+      step.next($(".js-step-action"));
+    });
   });
 });
 
@@ -74238,6 +74245,67 @@ $(".js-btn-data-person").click(function () {
 
 /***/ }),
 
+/***/ "./resources/js/profile/new-password.js":
+/*!**********************************************!*\
+  !*** ./resources/js/profile/new-password.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(".js-new-password").click(function () {
+  console.log($("#new_password").val(), $("#very_password").val());
+
+  if ($("#new_password").val() != $("#very_password").val()) {
+    $("#new_password, #very_password").addClass("is-invalid");
+    Swal.fire({
+      icon: 'error',
+      title: 'Las contraseñas no coinciden'
+    });
+  } else {
+    var btnElm = this;
+    validate($("#data-new-password")[0]).then(function (result) {
+      if (result == false) {} else {
+        try {
+          var _contentHtml = $(btnElm).html();
+
+          $(btnElm).html("\n                        <span class=\"spinner-grow spinner-grow-sm\" role=\"status\" aria-hidden=\"true\"></span>\n                        Loading...\n                    ");
+          $.post("/users/profile/new-password", $("#data-new-password").serialize()).done(function (data) {
+            console.log(data);
+
+            if (data == 3) {
+              $("#password_old").addClass("is-invalid");
+              Swal.fire({
+                icon: 'warning',
+                title: 'Contraseña incorrecta'
+              });
+            }
+
+            if (data == 1) {
+              $("#password_old").addClass("is-invalid");
+              Swal.fire({
+                icon: 'success',
+                title: 'Se cambió la contraseña exitosamente'
+              });
+              $(btnElm).html(_contentHtml);
+            } else {
+              $(btnElm).html(_contentHtml);
+            }
+          });
+        } catch (error) {
+          $(btnElm).html(contentHtml);
+          console.error(error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Ocurrió un error al guardar los datos'
+          });
+        }
+      }
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/profile/profile.js":
 /*!*****************************************!*\
   !*** ./resources/js/profile/profile.js ***!
@@ -74270,7 +74338,106 @@ __webpack_require__(/*! ./address-notebook */ "./resources/js/profile/address-no
 
 __webpack_require__(/*! ./data-person */ "./resources/js/profile/data-person.js");
 
+__webpack_require__(/*! ./new-password */ "./resources/js/profile/new-password.js");
+
 $('.datepicker').datepicker();
+
+/***/ }),
+
+/***/ "./resources/js/step.js":
+/*!******************************!*\
+  !*** ./resources/js/step.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var step =
+/*#__PURE__*/
+function () {
+  function step() {
+    _classCallCheck(this, step);
+
+    this.activeSect = false;
+  }
+
+  _createClass(step, [{
+    key: "active",
+    value: function active(item) {
+      step.step(item);
+    }
+  }, {
+    key: "next",
+    value: function next(elm) {
+      step.step(elm.attr("data-step"));
+    }
+  }], [{
+    key: "step",
+    value: function step(item) {
+      var item_bar = document.querySelectorAll(".item-bar");
+      var one_s = false;
+      var two_s = false;
+
+      for (var key in item_bar) {
+        if (item_bar.hasOwnProperty(key)) {
+          var element = item_bar[key];
+          $(element).addClass("active");
+
+          if (key == parseInt(item) - 1) {
+            break;
+          }
+        }
+      }
+
+      for (var _key in item_bar) {
+        if (item_bar.hasOwnProperty(_key)) {
+          var _element = item_bar[_key];
+
+          if (this.activeSect) {
+            if (one_s != false) {
+              $(_element).addClass(one_s);
+              one_s = true;
+            }
+
+            if (one_s == false) {
+              if (_element.classList.contains("view-true-section")) {
+                one_s = "view-true-section";
+                $(".view-true-section").removeClass("view-true-section");
+              }
+            }
+
+            if (two_s == false) {
+              if (_element.classList.contains("view-true-section-two")) {
+                two_s = "view-true-section-two";
+
+                _element.classList.remove("view-true-section-two");
+
+                if ($(".multi_step_form .item-bar")[parseInt(_key) + 1] != undefined) {
+                  $(".multi_step_form .item-bar")[parseInt(_key) + 1].classList.add("view-true-section-two");
+                }
+              }
+            }
+
+            if (_key == parseInt(item) - 1) {
+              break;
+            }
+          }
+        }
+      }
+
+      this.activeSect = true;
+    }
+  }]);
+
+  return step;
+}();
+
+module.exports = new step();
 
 /***/ }),
 
@@ -74292,8 +74459,8 @@ $('.datepicker').datepicker();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/brayan/Projects/Blackhost/iphonequilla/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/brayan/Projects/Blackhost/iphonequilla/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/brayansalgado/Projets/Blackhost/iphonequilla/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/brayansalgado/Projets/Blackhost/iphonequilla/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -13,4 +13,7 @@ class Cities extends Model
     public function Departaments(){
         return $this->hasMany('App\Departaments','departament_id');
     }
+    public function Stores(){
+        return $this->hasMany('App\Stores');
+    }
 }

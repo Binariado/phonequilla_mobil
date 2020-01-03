@@ -22,7 +22,7 @@ $.post("/users/profile/cities-global")
 });
 require('./address-notebook');
 require('./data-person');
-
+require('./new-password');
 
 $('.datepicker').datepicker();
 

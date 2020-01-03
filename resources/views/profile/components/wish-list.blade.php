@@ -1,4 +1,3 @@
-
 <div class="title t-color5 mb-3 pl-4 pr-4">
     Tus productos favoritos
 </div>
@@ -19,7 +18,7 @@
             </tr>
         </thead>
         <tbody class="row row-m-none">
-            @foreach ($product as $prod)
+            @foreach ($favorites as $prod)
                 <tr>
                     <td>
                         @component('components.product',[

@@ -119,7 +119,7 @@
                 <div class="tab-profile m-c" id="wishes">
                     <div class="item-profile-c pt-4 pb-4">
                         @component('profile.components.wish-list',[
-                            "product"=>$product
+                            'favorites'=>$favorites,
                         ])
                         @endcomponent
                     </div>
