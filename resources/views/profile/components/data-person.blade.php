@@ -70,8 +70,8 @@
             <label class="" for="gender">Genero *</label>
             <select class="custom-select " name="gender" id="gender" required>
                 <option value="" selected hidden>Seleccione..</option>
-                <option value="H">Hombre</option>
-                <option value="M">Mujer</option>
+                <option value="Hombre">Hombre</option>
+                <option value="Mujer">Mujer</option>
             </select>
         </div>
       </div>
@@ -118,16 +118,16 @@
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label class="" for="datalisAddress">Detalles de la dirección</label>
-                    <input type="text" class="form-control" id="datalisAddress" name="datalisAddress">
+                    <label class="" for="detailsAddress">Detalles de la dirección</label>
+                    <input type="text" class="form-control" id="detailsAddress" name="detailsAddress">
                     <div class="invalid-feedback">
                         Este campo es requerido
                     </div>
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label class="" for="barrio">Barrio *</label>
-                    <input type="text" class="form-control " name="barrio" id="barrio" required>
+                    <label class="" for="neighborhood_m">Barrio *</label>
+                    <input type="text" class="form-control " name="neighborhood_m" id="neighborhood_m" required>
                     <div class="invalid-feedback">
                         Este campo es requerido
                     </div>

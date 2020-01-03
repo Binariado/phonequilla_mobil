@@ -41,7 +41,7 @@ Route::get('search/{search}', 'ProductController@search');
 
 Route::group(['prefix' => 'users/profile', 'middleware' => 'auth'], function () {
     Route::resource('/', 'ProfileController');
-    Route::post('address-notebook-person', 'ProfileController@address');
+    Route::post('address-notebook-person', 'ProfileController@update');
     Route::post('address-notebook','UserAddressController@store');
     Route::post('cities-global','UserAddressController@cities');
 });
