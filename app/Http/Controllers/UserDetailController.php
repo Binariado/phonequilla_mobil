@@ -36,23 +36,22 @@ class UserDetailController extends Controller
     public function store(Request $request)
     {
         if ($request->isMethod('post')) {
-
-        $user_update=User::where('id',$request->id)->first();
-        $user_update->name=$request->name;
-        $user_update->email=$request->email;
-        $user_update->save();
-        $user_update_detail=User_detail::where('user_id',$request->id)->first();
-        $user_update_detail->name=$request->name;
-        $user_update_detail->username=$request->name;
-        $user_update_detail->birthday=$request->birthday;
-        $user_update_detail->birthplace=$request->birthplace;
-        $user_update_detail->gender=$request->gender;
-        $user_update_detail->phone=$request->phone;
-        $user_update_detail->landline=$request->landline;
-        $user_update_detail->document=$request->document;
-        $user_update_detail->current_place=$request->current_place;
-        $user_update_detail->save();
-    }
+            $user_update=User::where('id',$request->id)->first();
+            $user_update->name=$request->name;
+            $user_update->email=$request->email;
+            $user_update->save();
+            $user_update_detail=User_detail::where('user_id',$request->id)->first();
+            $user_update_detail->name=$request->name;
+            $user_update_detail->username=$request->name;
+            $user_update_detail->birthday=$request->birthday;
+            $user_update_detail->birthplace=$request->birthplace;
+            $user_update_detail->gender=$request->gender;
+            $user_update_detail->phone=$request->phone;
+            $user_update_detail->landline=$request->landline;
+            $user_update_detail->document=$request->document;
+            $user_update_detail->current_place=$request->current_place;
+            $user_update_detail->save();
+        }
 
     }
 

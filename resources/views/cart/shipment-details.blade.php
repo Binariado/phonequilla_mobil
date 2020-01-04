@@ -25,7 +25,7 @@
 
                             <div class="form-group col-md-12">
                                 <label class="s-text-bold" for="city">Ciudad</label>
-                                <select data-store="#store" class="form-control js-required" name="city" id="city" disabled>
+                                <select data-store="#store" class="form-control js-required" name="city" id="city">
                                     <option value="" selected hidden>Seleccione...</option>
                                 </select>
                                 <div class="invalid-feedback">
@@ -35,7 +35,7 @@
 
                             <div class="form-group col-md-12">
                                 <label class="s-text-bold" for="store">Tienda</label>
-                                <select class="form-control js-required" name="store" id="store" disabled>
+                                <select class="form-control js-required" name="store" id="store">
                                     <option value="" selected hidden>Seleccione...</option>
                                 </select>
                                 <div class="invalid-feedback">
@@ -116,12 +116,41 @@
             }
         });
 
-
         $(".js-btn-add").click(function(){
-            $.post("/shopping/shipment-details",$("#form-bill").serialize())
-            .done(function(data){
-                console.log(data);
-            })
+            function send(){
+                dataForm.get("Shipping_type")
+                $.post("/shopping/shipment-details",$("#form-bill").serialize())
+                .done(function(data){
+                    const contentUpdate=document.querySelector(".content-update");
+                    $(contentUpdate).html(data);
+                    step.next($(".js-step-action"));
+                });
+            }
+            const dataForm=new FormData($("#form-bill")[0]);
+            if(dataForm.get("Shipping_type")==2){
+                let ft=true;
+                dataForm.forEach((value,name)=>{
+                    if(value==""){
+                        document.querySelector('[name="'+name+'"]')
+                        .classList
+                        .add("is-invalid");
+                        ft=false
+                    }else{
+                        document.querySelector('[name="'+name+'"]')
+                        .classList
+                        .add("is-valid");
+                        document.querySelector('[name="'+name+'"]')
+                        .classList
+                        .remove("is-invalid");
+                    }
+                    return ft;
+                });
+                if(ft==true){
+                    send();
+                }
+            }else{
+                send();
+            }
         });
 
         let cities={};

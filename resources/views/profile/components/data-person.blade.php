@@ -5,17 +5,17 @@
     <div class="form-row">
       <div class="col-md-4 mb-3">
         <label class="" for="name">Nombre *</label>
-        <input type="text" class="form-control" name="name" id="name" placeholder="Andrea" required>
+        <input type="text" class="form-control" name="name" id="name" value="{{$user_detail->name}}" placeholder="Andrea" required>
       </div>
 
       <div class="col-md-4 mb-3">
         <label class="" for="last_name">Apellido *</label>
-        <input type="text" class="form-control" id="last_name"  name="last_name" placeholder="Velez Pacheco" required>
+        <input type="text" class="form-control" id="last_name"  name="last_name" placeholder="Velez Pacheco" value="{{$user_detail->last_name}}" required>
       </div>
 
       <div class="col-md-4 mb-3">
         <label class="" for="email">Correo *</label>
-        <input type="text" class="form-control" name="email" id="email" placeholder="andreita2030@hotmail.com" required>
+        <input type="text" class="form-control" name="email" id="email" placeholder="andreita2030@hotmail.com" value="{{$user_detail->User->email}}" required>
       </div>
     </div>
 
@@ -23,24 +23,24 @@
       <div class="col-md-4 mb-3">
         <label class="" for="document_types_id">Tipo de documento *</label>
         <select class="custom-select " name="document_types_id" id="document_types_id" required>
-            <option value="" selected hidden>Seleccione..</option>
+            <option value="" {{$user_detail->document_types_id==null?"selected":""}} hidden>Seleccione..</option>
             @foreach ($Document_Type as $DocumentType)
-                <option value="{{ $DocumentType->id }}">{{ $DocumentType->code }}</option>
+                <option value="{{ $DocumentType->id }}" {{$user_detail->document_types_id==$DocumentType->id?"selected":""}}>{{ $DocumentType->code }}</option>
             @endforeach
         </select>
       </div>
 
       <div class="col-md-4 mb-3">
         <label class="" for="document">Número de documento *</label>
-        <input type="text" class="form-control " name="document" id="document" placeholder="1.001.777.757" required>
+        <input type="text" class="form-control " name="document" id="document" placeholder="1.001.777.757" value="{{$user_detail->User->document}}" required>
       </div>
 
       <div class="col-md-4 mb-3">
         <label class="" for="birthplace">Pais de residencia *</label>
         <select class="custom-select " name="birthplace" id="birthplace" required>
-            <option value="" selected hidden>Seleccione..</option>
+            <option value="" {{$user_detail->current_place==null?"selected":""}} hidden>Seleccione..</option>
             @foreach ($Countries as $Countrie)
-                <option value="{{ $Countrie->id }}">{{ $Countrie->name }}</option>
+                <option value="{{ $Countrie->id }}" {{$user_detail->current_place==$Countrie->id?"selected":""}}>{{ $Countrie->name }}</option>
             @endforeach
         </select>
       </div>
@@ -58,20 +58,20 @@
                     </span>
                 </div>
             </div> --}}
-            <input type="text" class="form-control datepicker" name="birthday" id="birthday" placeholder="10 / 05 / 1990" required>
+            <input type="text" class="form-control datepicker" name="birthday" id="birthday" placeholder="10 / 05 / 1990" value="{{$user_detail->User->birthday}}" required>
         </div>
 
         <div class="col-md-4 mb-3">
             <label class="" for="phone">Celular *</label>
-            <input type="text" class="form-control " name="phone" id="phone" placeholder="301 277 3322" required>
+            <input type="text" class="form-control " name="phone" id="phone" placeholder="301 277 3322"   value="{{$user_detail->User->phone}}" required>
         </div>
 
         <div class="col-md-4 mb-3">
             <label class="" for="gender">Genero *</label>
             <select class="custom-select " name="gender" id="gender" required>
-                <option value="" selected hidden>Seleccione..</option>
-                <option value="Hombre">Hombre</option>
-                <option value="Mujer">Mujer</option>
+                <option value="" {{$user_detail->gender==null?"selected":""}} hidden>Seleccione..</option>
+                <option {{$user_detail->gender=="Hombre"?"selected":""}} value="Hombre">Hombre</option>
+                <option {{$user_detail->gender=="Mujer"?"selected":""}} value="Mujer">Mujer</option>
             </select>
         </div>
       </div>

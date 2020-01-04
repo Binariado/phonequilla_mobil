@@ -6,7 +6,8 @@ $('.js-addProduct').click(function(){
     }).done(function(data){
         console.log(data)
     })
-})
+});
+
 $(document).ready(function () {
     const main_view= $(".main-product-detail")
     .flickity({
@@ -19,7 +20,8 @@ $(document).ready(function () {
     $(document.body).resize(function(){
         main_view.flickity('resize');
     });
-})
+});
+
 const contentUpdate=document.querySelector(".content-update");
 $(document).ready(function(){
     step.active($(".js-step-action").attr("data-step"));
@@ -32,7 +34,6 @@ $(document).ready(function(){
             step.next($(".js-step-action"));
         });
     });
-
 });
 
 

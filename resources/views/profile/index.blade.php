@@ -95,6 +95,7 @@
                             'departments'=>$departments,
                             'Document_Type'=>$Document_Type,
                             'Countries'=>$Countries,
+                            "user_detail"=>$user_detail,
                         ])
                         @endcomponent
                     </div>

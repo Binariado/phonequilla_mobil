@@ -9,6 +9,9 @@ use App\Departments;
 use App\Cities;
 use App\Store;
 use App\Countries;
+use App\User_address;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Facade\FlareClient\Http\Response;
 
 class CartController extends Controller
@@ -23,7 +26,7 @@ class CartController extends Controller
       //$carrito= Cart::add(455, 'Sample Item', 100.99, 2, array());
       $cartContent = Cart::getContent();
       $product = Product::all();
-      return view('cart/index',compact("cartContent","product"));
+    return view('cart/index',compact("cartContent","product"));
     }
 
     /**
@@ -125,7 +128,23 @@ class CartController extends Controller
                 ])
             ]);
         }
+        $address_main = DB::table('users')
+        ->join('address_mains', 'users.id', '=', 'address_mains.user_id')
+        ->select('address_mains.*')
+        ->get();
+        $address_item = DB::table('users')
+        ->join('user_addresses', 'users.id', '=', 'user_addresses.user_id')
+        ->select('user_addresses.*')
+        ->get();
 
+        $departments=Departments::all();
+        $address=$address_item->merge($address_main);
+        $cartItems=Product::whereIn('id',Cart::getContent()->keyBy("id")->keys())->get();
+        return view('cart/purchase',[
+            "departments"=>$departments,
+            "cartItems"=>$cartItems,
+            "addresses"=>$address
+        ]);
         return session("cart");
     }
 

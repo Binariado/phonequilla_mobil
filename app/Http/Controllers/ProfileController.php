@@ -27,11 +27,14 @@ class ProfileController extends Controller
         $favorites=ProductFavorite::where('user_id',Auth::user()->id)->get();
         $departments=Departments::all();
         $product=Product::whereIn('id',$favorites->keyBy("product_id")->keys()->all())->get();
+        $user_detail=User_detail::where('user_id',Auth::user()->id)->get()->first();
+        //dd($user_detail);
         return view("profile.index",[
             'departments'=>$departments,
             'Document_Type'=>Document_Type::all(),
             'Countries'=>Countries::all(),
             'favorites'=>$product,
+            'user_detail'=>$user_detail,
         ]);
     }
 
