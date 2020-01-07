@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Cart;
+use Auth;
 use App\Product;
 use App\Departments;
 use App\Cities;
 use App\Store;
 use App\Countries;
 use App\User_address;
+use App\AddressMain;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Facade\FlareClient\Http\Response;
@@ -95,7 +97,51 @@ class CartController extends Controller
     {
         //
     }
+    public function purchaseAddress(Request $request)
+    {
+        try {
+            DB::beginTransaction();
+            $departments=Departments::all();
+            $cartItems=Product::whereIn('id',Cart::getContent()->keyBy("id")->keys())->get();
+            if(collect($request)->count()==1){
+                $id=explode("-",$request->address_id);
+                if(count($id)==1){
+                    $address=User_address::where("id",$request->address_id)->get()->first();
+                }else{
+                    $address= AddressMain::where("id",$id[0])->get()->first();
+                }
+                session("cart")["address"]=$address;
+                return view('cart/info_purchase',[
+                    "departments"=>$departments,
+                    "cartItems"=>$cartItems,
+                    "address"=>$address
+                ]);
+            }else{
+                $address=new User_address;
+                $address->user_id=Auth::user()->id;
+                $address->city_id=$request->city;
+                $address->department_id=$request->department;
+                $address->neighborhood=$request->neighborhood;
+                $address->address=$request->address;
+                $address->address_detail=$request->detailsAddress;
+                $address->address_site=$request->place;
+                $address->state=1;
+                $address->save();
+                DB::commit();
+                session("cart")["address"]=$address;
+                return view('cart/info_purchase',[
+                    "departments"=>$departments,
+                    "cartItems"=>$cartItems,
+                    "address"=>$address,
+                ]);
+            }
+        } catch (Exception $e) {
+            DB::rollBack();
+            return 3;
+        }
 
+        
+    }
     public function purchase()
     {
         $departments=Departments::all();
@@ -128,17 +174,10 @@ class CartController extends Controller
                 ])
             ]);
         }
-        $address_main = DB::table('users')
-        ->join('address_mains', 'users.id', '=', 'address_mains.user_id')
-        ->select('address_mains.*')
-        ->get();
-        $address_item = DB::table('users')
-        ->join('user_addresses', 'users.id', '=', 'user_addresses.user_id')
-        ->select('user_addresses.*')
-        ->get();
-
+        $address_main = addressMain::where("user_id",Auth::user()->id)->get();
+        $user_address = User_address::where("user_id",Auth::user()->id)->get();
         $departments=Departments::all();
-        $address=$address_item->merge($address_main);
+        $address=$user_address->merge($address_main);
         $cartItems=Product::whereIn('id',Cart::getContent()->keyBy("id")->keys())->get();
         return view('cart/purchase',[
             "departments"=>$departments,

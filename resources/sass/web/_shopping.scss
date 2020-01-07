@@ -23,7 +23,7 @@
     .content-details{
         width: 100%;
         .shopping-addres{
-            width: 80%;
+            width: 90%;
             margin-bottom: 1.5em;
 
             .group-address{
@@ -40,6 +40,8 @@
             background-color: white;
             padding: 15px;
             width: 100%;
+            border:solid 1px #ced4da;;
+            border-radius: 10px ;
             .input-group-prepend{
                 margin-right: 4%;
             }
@@ -89,11 +91,11 @@
     .container,.tab-profile{
         .shopping-title{
             object-fit: contain;
-            font-family: "Rajdhani-bold";
+            font-family: "Roboto-bold";
             line-height: 1.28;
             letter-spacing: normal;
             text-align: center;
-            color: #0c1e26;
+            color: #222731;
         }
         .w-sho{
             width: 880px;
@@ -204,7 +206,7 @@
         .s-title{
             object-fit: contain;
             font-family: "Roboto-bold";
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 600;
             font-stretch: normal;
             font-style: normal;
@@ -225,7 +227,7 @@
             font-style: normal;
             letter-spacing: normal;
             text-align: left;
-            color: #8D8D8D !important;
+            color: #222731 !important;
         }
         .s-text1{
             object-fit: contain;
@@ -235,7 +237,8 @@
             font-style: normal;
             letter-spacing: normal;
             text-align: left;
-            color: #8D8D8D !important; //new
+            font-size: 16px;
+            color: #222731 !important; //new
         }
         .s-text{
             object-fit: contain;
@@ -275,7 +278,7 @@
             text-align: left;
         }
         .s-text-bold-R{
-            font-family: "Rajdhani-bold";
+            font-family: "Roboto-bold";
             line-height: 1.23;
             letter-spacing: normal;
             text-align: left;
@@ -338,12 +341,12 @@
             }
             .sub-text-head{
                 .p-h-t1{
-                    font-family: "Montserrat-regular";
-                    color:$color3;
+                    font-family: "Roboto-regular";
+                    color:#222731;
 
                 }
                 .p-h-t2{
-                    font-family: "Rajdhani-bold";
+                    font-family: "Roboto-bold";
                     color:#F53F3D;
                     font-size: 18px;
                 }

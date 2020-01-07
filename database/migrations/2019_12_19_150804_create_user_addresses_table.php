@@ -18,7 +18,9 @@ class CreateUserAddressesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('city_id')->nullable();
+            $table->foreign('city_id')->references('id')->on('cities');
             $table->string('department_id')->nullable();
+            $table->foreign('department_id')->references('id')->on('departments');
             $table->string('neighborhood')->nullable();
             $table->string('address')->nullable();
             $table->string('address_detail')->nullable();

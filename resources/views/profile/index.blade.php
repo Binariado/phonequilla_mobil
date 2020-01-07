@@ -82,7 +82,8 @@
 
 
                         @component('profile.components.new-address',[
-                            'departments'=>$departments
+                            'departments'=>$departments,
+                            'addresses'=>$addresses,
                         ])
 
                         @endcomponent
@@ -96,6 +97,7 @@
                             'Document_Type'=>$Document_Type,
                             'Countries'=>$Countries,
                             "user_detail"=>$user_detail,
+                            
                         ])
                         @endcomponent
                     </div>
@@ -152,7 +154,7 @@
         <div class="carousel-cell">
             <a data-target="#orders" class="item-m-b d-flex align-items-center js-itmen-m active">
                 <div class="d-flex flex-column text-center">
-                    <i class="icon-ic_receipt_24px"></i>
+                    <i class="icon-Grupo-10402"></i>
                 </div>
             </a>
         </div>
@@ -160,7 +162,7 @@
         <div class="carousel-cell">
             <a data-target="#address" class="item-m-b d-flex align-items-center js-itmen-m">
                 <div class="d-flex flex-column text-center">
-                    <i class="icon-ic_pin_drop_24px"></i>
+                    <i class="icon-Grupo-10402"></i>
                 </div>
             </a>
         </div>
@@ -168,7 +170,7 @@
         <div class="carousel-cell">
             <a data-target="#data-persons" class="item-m-b d-flex align-items-center js-itmen-m">
                 <div class="d-flex flex-column text-center">
-                    <i class="icon-ic_account_box_24px"></i>
+                    <i class="icon-Grupo-10402"></i>
                 </div>
             </a>
         </div>
@@ -176,7 +178,7 @@
         <div class="carousel-cell">
             <a data-target="#key" class="item-m-b d-flex align-items-center js-itmen-m">
                 <div class="d-flex flex-column text-center">
-                    <i class="icon-ic_fingerprint_24px"></i>
+                    <i class="icon-Grupo-10402"></i>
                 </div>
             </a>
         </div>
@@ -184,7 +186,7 @@
         <div class="carousel-cell">
             <a data-target="#coupons" class="item-m-b d-flex align-items-center js-itmen-m">
                 <div class="d-flex flex-column text-center">
-                    <i class="icon-ic_turned_in_24px"></i>
+                    <i class="icon-Grupo-10402"></i>
                 </div>
             </a>
         </div>
@@ -192,7 +194,7 @@
         <div class="carousel-cell">
             <a data-target="#wishes" class="item-m-b d-flex align-items-center js-itmen-m">
                 <div class="d-flex flex-column text-center">
-                    <i class="icon-ic_favorite_border_24px"></i>
+                    <i class="icon-Grupo-10402"></i>
                 </div>
             </a>
         </div>

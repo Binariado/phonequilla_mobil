@@ -1,4 +1,12 @@
 .profile-section{
+    .shopping-addres{
+        .group-address{
+            .group-address{
+                border:none !important;
+                font-size: 15px;
+            }
+        }
+    }
     .dataTables_filter{
         display: none;
     }
@@ -30,17 +38,17 @@
     .border-right-none{
         border-right:none !important;
     }
-    .input-group-text{
-        background-color: transparent;
-        border: 0px !important;
-        border-right: solid 0.5px #8d8d8d !important;
-        border-top: solid 0.5px #8d8d8d !important;
-        border-bottom: solid 0.5px #8d8d8d !important;
-        i:before {
-            content: "\f783";
-            color: #8D8D8D;
-        }
-    }
+    // .input-group-text{
+    //     background-color: transparent;
+    //     border: 0px !important;
+    //     border-right: solid 0.5px #8d8d8d !important;
+    //     border-top: solid 0.5px #8d8d8d !important;
+    //     border-bottom: solid 0.5px #8d8d8d !important;
+    //     i:before {
+    //         content: "\f783";
+    //         color: #8D8D8D;
+    //     }
+    // }
     .title{
         font-family: "Roboto-regular", sans-serif;
         font-size: 17px;

@@ -44,6 +44,6 @@ class User extends \TCG\Voyager\Models\User
         return $this->hasMany('App\AddressMain');
     }
     public function User_detail(){
-        return $this->hasMany('App\User_detail');
+        return $this->belongsTo('App\User_detail');
     }
 }

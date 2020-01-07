@@ -1,5 +1,4 @@
 //require('./components/components-react');
-const step = require('./step');
 $('.js-addProduct').click(function(){
     $.post("cart/"+this.dataset.id,{
         'color':this.dataset.color
@@ -22,19 +21,6 @@ $(document).ready(function () {
     });
 });
 
-const contentUpdate=document.querySelector(".content-update");
-$(document).ready(function(){
-    step.active($(".js-step-action").attr("data-step"));
-    $(".js-purchase-field")
-    .removeAttr("disabled")
-    .click(function(){
-        $.post("/shopping/purchase")
-        .done(function(data){
-            $(contentUpdate).html(data);
-            step.next($(".js-step-action"));
-        });
-    });
-});
 
 
 

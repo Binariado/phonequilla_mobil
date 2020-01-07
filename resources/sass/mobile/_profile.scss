@@ -1,0 +1,56 @@
+.menu-bottom-mobile,.menu-bottom-mobile-profile{
+    display: none;
+}
+@media (max-width: 940px) {
+    .menu-bottom-mobile,.menu-bottom-mobile-profile{
+        display: block;
+        background-color: rgba(0, 0, 0, 0.404);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        width: 100%;
+        position: fixed;
+        height: 60px;
+        z-index: 100;
+        bottom: 0px;
+
+        .car-amount{
+            position: relative;
+            top: -20px;
+            right: 10px;
+            color: black;
+            background: white;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            font-size: 17px;
+            font-family: 'Montserrat-bold', sans-serif;
+        }
+        .content-menu-b{
+            height: 100%;
+            overflow: auto;
+            overflow-y: hidden;
+            .item-m-b{
+                height: 100%;
+                margin-right: 10px;
+            }
+            a{
+                color:white ;
+                text-decoration: none;
+                i::before{
+                    font-size: 2rem;
+                    color:white ;
+                }
+                span{
+                    font-family: "Rajdhani-regular", sans-serif;
+                    font-size: 16px;
+                }
+            }
+            a.active{
+                color:#f11c1c ;
+                i::before{
+                    color:#f11c1c ;
+                }
+            }
+        }
+    }
+}

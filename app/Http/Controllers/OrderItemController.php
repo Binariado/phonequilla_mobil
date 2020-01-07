@@ -23,7 +23,7 @@ class OrderItemController extends Controller
         $res = $client->request('POST', 'https://sandbox.api.payulatam.com/payments-api/4.0/service.cgi', [
             'json'=>[
             'test' =>false,
-            'language'=>"en",
+            'language'=>"es",
             'command'=>"ORDER_DETAIL",
             'merchant'=>[
                 'apiLogin'=> "pRRXKOl8ikMmt9u",
@@ -103,5 +103,9 @@ class OrderItemController extends Controller
     public function destroy(Order_item $order_item)
     {
         //
+    }
+    public function purchaseEnd(Request $request)
+    {
+        return $request;
     }
 }

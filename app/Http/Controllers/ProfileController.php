@@ -5,6 +5,7 @@ use App\Product;
 use Illuminate\Http\Request;
 use App\User;
 use App\User_detail;
+use App\User_address;
 use App\AddressMain;
 use Auth;
 use App\Departments;
@@ -13,6 +14,7 @@ use App\Countries;
 use App\ProductFavorite;
 use App\Document_Type;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Stmt\TryCatch;
 
 class ProfileController extends Controller
@@ -29,12 +31,16 @@ class ProfileController extends Controller
         $product=Product::whereIn('id',$favorites->keyBy("product_id")->keys()->all())->get();
         $user_detail=User_detail::where('user_id',Auth::user()->id)->get()->first();
         //dd($user_detail);
+        $address_main = addressMain::where("user_id",Auth::user()->id)->get();
+        $user_address = User_address::where("user_id",Auth::user()->id)->get();
+        $address=$user_address->merge($address_main);
         return view("profile.index",[
             'departments'=>$departments,
             'Document_Type'=>Document_Type::all(),
             'Countries'=>Countries::all(),
             'favorites'=>$product,
             'user_detail'=>$user_detail,
+            'addresses'=>$address,
         ]);
     }
 
@@ -100,29 +106,48 @@ class ProfileController extends Controller
             if($newUser->update($user->all())){
                 $userDetail = User_detail::where('user_id',Auth::user()->id);
                 if($userDetail->count()>=1){
-                    if($userDetail->update([
+                   $proe= $userDetail->update([
                         "name"=>$request->name,
                         "last_name"=>$request->last_name,
                         "document_types_id"=>$request->document_types_id,
                         "document"=>$request->document,
                         //"birthday"=>$request->birthday,
                         "gender"=>$request->gender,
-                        "birthplace"=>$request->birthplace,
+                        "birthplace"=>Countries::where('id',$request->birthplace)->first()->name,
                         "phone"=>$request->phone,
                         "current_place"=>$request->current_place,
-                    ])){
+                    ]);
+                    if($proe){
                         $addressMain = AddressMain::where('user_id',Auth::user()->id);
-                        if($addressMain->update([
-                            "city_id"=>$request->city,
-                            "department_id"=>$request->department,
-                            "neighborhood"=>$request->neighborhood_m,
-                            "address"=>$request->address,
-                            "address_detail"=>$request->detailsAddress,
-                            "address_site"=>$request->place,
-                        ])){
-                            DB::commit();
-                            return 1;
+                        
+                        if($addressMain->count()>0){
+                            //return $addressMain;
+                            if($addressMain->update([
+                                "city_id"=>$request->city,
+                                "department_id"=>$request->department,
+                                "neighborhood"=>$request->neighborhood_m,
+                                "address"=>$request->address,
+                                "address_detail"=>$request->detailsAddress,
+                                "address_site"=>$request->place,
+                            ])){
+                                DB::commit();
+                                return 1;
+                            }
+                        }else{
+                            $addressMain = new AddressMain;
+                            $addressMain->user_id=Auth::user()->id;
+                            $addressMain->city_id=$request->city;
+                            $addressMain->department_id=$request->department;
+                            $addressMain->neighborhood=$request->neighborhood_m;
+                            $addressMain->address=$request->address;
+                            $addressMain->address_detail=$request->detailsAddress;
+                            $addressMain->address_site=$request->place;
+                            if($addressMain->save()){
+                                DB::commit();
+                                return 1;
+                            }
                         }
+
 
                     }
                 }else{
@@ -158,6 +183,7 @@ class ProfileController extends Controller
             DB::rollBack();
             return 3;
         }
+       
         // `document_types_id``name``username``birthday``birthplace``gender``phone``landline``document``current_place`
     }
 

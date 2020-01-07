@@ -17,12 +17,12 @@
 
             <div class="collapse" id="generalDetailCollapse">
                 <div class="bd-highlight shopping-text">
-                    {{--  @foreach ($cartItems as $purItem)
+                     @foreach ($cartItems as $purItem)
                         <div class="d-flex pur-item">
                             <div class="d-flex align-items-center bd-highlight img-s-p">
                                 <div class="img-shopping-prod">
                                     <div>
-                                    <img src="http://localhost:8000/storage/images/product/5XZ88PqGTQYSDsnIzb1KcIWnwcaFSWCqZIDMKsa9.png" alt="">
+                                    <img src="{{"https://iphonequilla.com.co/storage/".$purItem->img}}" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -32,11 +32,11 @@
                                 <div class="bd-highlight s-text1" >{{$purItem->name}}</div>
                                 <div class="d-flex flex-column bd-highlight">
                                     <p class="s-text1" style="font-size:13px">REF: </p>
-                                    <p class="s-text1" style="font-size:13px">Cantidad: {{Cart::getContent()->where("id",$purItem->id)>first()->quality}}</p>
+                                    <p class="s-text1" style="font-size:13px">Cantidad: {{Cart::getContent()[$purItem->id]->quantity}}</p>
                                 </div>
                             </div>
                         </div>
-                    @endforeach  --}}
+                    @endforeach 
                     <div class="container bd-highligh sub-text-head">
                         <a href="{{url("/shopping/cart")}}">
                             <p class="p-h-t1 text-left">Editar compra</p>
@@ -48,10 +48,10 @@
                 </div>
 
                 <div class="sub-text-head d-flex flex-column bd-highlight">
-                    <p style="font-size:13px;" class="container p-h-t1 d-flex align-items-end justify-content-start">
+                    <p style="font-size:13px;" class="container d-flex align-items-end justify-content-center t-color6 roboto-regular">
                             Con esta compra acumulas saldo:
                     </p>
-                    <h2 style="color:#e44652;" class="d-flex justify-content-center s-text-bold-R">
+                    <h2 style="color:#F53F3D;" class="d-flex justify-content-center s-text-bold-R">
                         ${{ Cart::getTotal() }}
                     </h2>
                 </div>
@@ -61,15 +61,15 @@
 
                 <div class="container pur-totales">
                     <div class="sub-text-head d-flex flex-row bd-highlight">
-                        <p class="p-h-t1 d-flex align-items-end justify-content-start">Subtotal:</p>
-                        <p style="font-size:18px;" class="s-text-bold-R d-flex align-items-end justify-content-end">
+                        <p class="d-flex align-items-end justify-content-start roboto-bold t-color6">Subtotal:</p>
+                        <p style="font-size:18px;" class="d-flex align-items-end justify-content-end t-color6">
                                 ${{ Cart::getSubTotal() }}
                         </p>
                     </div>
 
                     <div class="sub-text-head d-flex flex-row bd-highlight">
-                        <p class="p-h-t1 d-flex align-items-end justify-content-start">Envio:</p>
-                        <p style="font-size:18px;" class="s-text-bold-R d-flex align-items-end justify-content-end">
+                        <p class="d-flex align-items-end justify-content-start roboto-bold t-color6">Envio:</p>
+                        <p style="font-size:18px;" class="d-flex align-items-end justify-content-end t-color6">
                                 ${{ 0 }}
                         </p>
                     </div>
@@ -89,8 +89,8 @@
                     </div>  --}}
 
                     <div class="sub-text-head d-flex flex-row bd-highlight">
-                        <p class="d-flex align-items-end justify-content-start s-text-bold-R">Totales:</p>
-                        <p style="font-size:18px;" class="s-text-bold-R d-flex align-items-end justify-content-end js-total">
+                        <p class="d-flex align-items-end justify-content-start roboto-bold t-color6">Totales:</p>
+                        <p style="font-size:18px;" class="d-flex align-items-end justify-content-end js-total t-color6">
                                 ${{ Cart::getTotal() }}
                         </p>
                     </div>

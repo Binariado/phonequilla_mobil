@@ -34,6 +34,8 @@ require('./product');
 require("../../node_modules/flickity/dist/flickity.pkgd.min.js");
 require('./profile/profile');
 require('./filter');
+require('./purchase/appPurchase');
+
 
 $(".js-itmen-m").click(function(e){
     $(".menu-profile .active").removeClass("active");

@@ -28,6 +28,9 @@ Route::group(['prefix' => 'admin'], function () {
 Route::group(['prefix' => 'shopping'], function () {
     //CARRITO DE COMPRA Y TRANSACCIÓN
     Route::resource('/cart', 'CartController');
+   
+    Route::post('purchase-end', 'OrderItemController@purchaseEnd');
+    Route::post('purchase-address', 'CartController@purchaseAddress');
     Route::post('purchase', 'CartController@purchase');
     Route::post('shipment-details', 'CartController@shipmentDetails');
     Route::post('cities-global','CartController@cities');

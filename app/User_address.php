@@ -12,9 +12,12 @@ class User_address extends Model
 
 
     public function User(){
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User','user_id');
     }
-    public function Departaments(){
-        return $this->hasMany('App\Departaments','departament_id');
+    public function Departments(){
+        return $this->belongsTo('App\Departments','department_id');
+    }
+    public function Cities(){
+        return $this->belongsTo('App\Cities','city_id');
     }
 }
